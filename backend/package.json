@@ -4,7 +4,8 @@
   "description": "simple REST API for the project",
   "main": "index.js",
   "scripts": {
-    "test": "npde index.js"
+    "start": "node index.js",
+    "test": "nodemon index.js"
   },
   "keywords": [
     "REST",
@@ -13,6 +14,10 @@
   "author": "csd4279 csd4278",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2"
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "knex": "^0.95.15",
+    "nodemon": "^2.0.15",
+    "sqlite3": "^5.0.2"
   }
 }
