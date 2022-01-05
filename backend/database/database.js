@@ -17,4 +17,8 @@ async function initialize() {
     db = await connect();
 }
 
-module.exports = { initialize }
+function getDb() {
+    return db;
+}
+
+module.exports = { initialize, getDb }

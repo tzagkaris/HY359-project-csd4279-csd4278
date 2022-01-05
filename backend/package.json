@@ -4,7 +4,8 @@
   "description": "simple REST API for the project",
   "main": "index.js",
   "scripts": {
-    "test": "npde index.js"
+    "start": "node index.js",
+    "test": "nodemon index.js"
   },
   "keywords": [
     "REST",

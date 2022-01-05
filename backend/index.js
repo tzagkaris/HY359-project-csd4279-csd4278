@@ -12,10 +12,11 @@ const database = require('./database/database.js');
 database.initialize();
 
 /* import all the routers from apis and apply them to the server  */
-const api = require('./api/api.index')
-api.rts.forEach(router => {
-    app.use(router);
-})
+const apiRouter = require('./api/api.index').apiRouter;
+app.use(
+    '/api',
+    apiRouter
+);
 
 app.listen(3000, () => {
     console.log('Listening on port 3000')
