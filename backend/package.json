@@ -14,6 +14,7 @@
   "author": "csd4279 csd4278",
   "license": "ISC",
   "dependencies": {
+    "colors": "^1.4.1",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "knex": "^0.95.15",

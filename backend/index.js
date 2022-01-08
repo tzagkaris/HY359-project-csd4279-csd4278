@@ -18,6 +18,10 @@ app.use(
     apiRouter
 );
 
+app.get('/test', (req, res, next) => {
+    res.status(200).send({status: 'ok'});
+})
+
 app.listen(3000, () => {
     console.log('Listening on port 3000')
 })
