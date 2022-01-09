@@ -4,8 +4,10 @@ const logic = require('./open.logic').openLogic;
 
 router.use(logger.logRequest);
 
-router.get('/test', 
-    
+router.post('/register', 
+
+    logic.checkAmkaValidity,
+    logic.checkBirthDate,
     logic.register,
     logic.onError
 )
