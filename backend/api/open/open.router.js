@@ -10,7 +10,20 @@ router.post('/register',
     logic.checkBirthDate,
     logic.register,
     logic.onError
-)
+);
+
+router.post('/login',
+
+    logic.checkLoginInfo,
+    logic.generateToken,
+    logic.onError
+);
+
+router.get('/certified',
+
+    logic.getCertified,
+    logic.onError
+);
 
 
 module.exports = { routerBundle:  { router, prefix: '/open'} };
