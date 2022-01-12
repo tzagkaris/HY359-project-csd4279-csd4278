@@ -2,9 +2,9 @@ const knex = require('knex');
 
 let db = undefined;
 
-async function connect() {
+function connect() {
 
-    return await knex({
+    return knex({
         client: 'sqlite3',
         connection: {
             filename: process.cwd() + '/database/database.sqlite3'
@@ -13,8 +13,8 @@ async function connect() {
     })
 }
 
-async function initialize() {
-    db = await connect();
+function initialize() {
+    db = connect();
 }
 
 function getDb() {
