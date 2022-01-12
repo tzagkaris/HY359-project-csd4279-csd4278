@@ -88,7 +88,7 @@ const openLogic = {
                 next({status: 'error', desc: msg_tokens[msg_tokens.length - 1], code: 400, refCode: 5}) 
             }
             else {
-                next({status: 'error', desc: 'Internal error', code: 500})
+                next({status: 'error', desc: 'Internal error', code: 500, refCode: 6})
             }
         
         
@@ -99,12 +99,12 @@ const openLogic = {
     checkLoginInfo: (req, res, next) => {
 
         if(!req.body.username || !req.body.password) {
-            next({status: 'error', desc: 'missing username or password', code: 400})
+            next({status: 'error', desc: 'missing username or password', code: 400, refCode: 1})
             return;
         } 
 
         if(req.body.at) {
-            next({status: 'error', desc: 'nice try', code: 400})
+            next({status: 'error', desc: 'nice try', code: 400, refCode: 123})
             return;
         }
 
@@ -127,12 +127,12 @@ const openLogic = {
             
             /* creds do not match, sad */
             } else {
-                next({status: 'error', desc: 'invalid creds', code: 400})
+                next({status: 'error', desc: 'Invalid creds', code: 400, refCode: 2})
                 return;
             }
             
         }).catch(er => {
-            next({status: 'error', desc: 'Internal error', code: 500})
+            next({status: 'error', desc: 'Internal error', code: 500, refCode: 3})
             return;
         })
     },
@@ -142,6 +142,20 @@ const openLogic = {
         let tok = auth.newToken(req.body.at, req.body.username)
         res.status(200).send({status: 'ok', accountType: req.body.at ,token: tok});
     },
+
+    getCertified: (req, res, next) => {
+
+        store.getCert()
+        .then(rows => {
+            /* delete private information */
+            rows.forEach(row => {delete row.password; delete row.email })
+            res.status(200).send(rows)
+        })
+        .catch(er => {
+            next({status: 'error', desc: 'Internal error', code: 500, refCode: 1})
+        })
+    },
+
 
     onError: (error, req, res, next) => {
         res.status(error.code).send({error: error});

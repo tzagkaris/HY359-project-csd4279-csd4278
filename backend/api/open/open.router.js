@@ -13,8 +13,15 @@ router.post('/register',
 );
 
 router.post('/login',
+
     logic.checkLoginInfo,
     logic.generateToken,
+    logic.onError
+);
+
+router.get('/certified',
+
+    logic.getCertified,
     logic.onError
 );
 

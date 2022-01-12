@@ -40,7 +40,17 @@ const openStore = {
                 reject(error)
             })    
         })
-    } 
+    },
+
+    getCert: () => {
+
+        return new Promise((resolve, reject) => {
+
+            db('doctor').where({certified: 1})
+            .then(res => resolve(res))
+            .catch(error => reject(error))
+        })
+    }
 
 } 
 
