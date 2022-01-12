@@ -14,6 +14,15 @@ const getType = (type) => {
     })
 }
 
+const delType = (type, amka) => {
+
+    return new Promise((resolve, reject) => {
+        store.deleteUser(type, amka)
+        .then(r => resolve(r))
+        .catch(er => reject(er))
+    })
+}
+
 const adminLogic = {
 
     getUsers: (req, res, next) => {
@@ -35,7 +44,43 @@ const adminLogic = {
         .catch(er => {
             next({status: 'error', desc: 'Internal error', code: 500, refCode: 1})
         })
+    },
+
+    deleteUser: (req, res, next) => {
+
+        if(!req.body.amka) {
+            next({status: 'error', desc: 'Amka not specified', code: 400, refCode: 2})
+            return;
+        }
+
+        Promise.all([
+            delType('patient', req.body.amka),
+            delType('doctor', req.body.amka)
+        ])
+        .then(r => {
+            res.status(200).send({status: 'ok'})
+        })
+        .catch(e => {
+            next({status: 'error', desc: 'Internal error', code: 500, refCode: 1})
+        })
+    },
+
+    certifyDoc: (req, res, next) => {
+
+        if(!req.body.amka) {
+            next({status: 'error', desc: 'Amka not specified', code: 400, refCode: 2})
+            return;
+        }
+
+        store.certify(req.body.amka)
+        .then(r => {
+            res.status(200).send({status: 'ok'});
+        })
+        .catch(er => {
+            next({status: 'error', desc: 'Internal error', code: 500, refCode: 1})
+        })
     }
+
 }
 
 module.exports = { adminLogic }

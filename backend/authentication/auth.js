@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken')
 const logger = require('./../utils/logger/logger').logger;
 const secret = 'csd4279'
 
-class authenticator {
+class Authenticator {
 
     constructor(valid) {
         this.valid = valid;
@@ -43,4 +43,4 @@ const auth = {
     }
 }
 
-module.exports = { auth, authenticator };
+module.exports = { auth, Authenticator };

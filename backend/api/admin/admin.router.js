@@ -2,8 +2,8 @@ const router = require('express').Router();
 const logger = require('./../../utils/logger/logger').logger;
 const cError = require('./../../utils/error/error').cError;
 
-const authenticator = require('./../../authentication/auth').authenticator;
-const auth = new authenticator('admin')
+const Authenticator = require('./../../authentication/auth').Authenticator;
+const auth = new Authenticator('admin')
 
 const logic = require('./admin.logic').adminLogic;
 
@@ -13,6 +13,14 @@ router.use(auth.authenticate);
 
 router.get('/users', 
     logic.getUsers
+)
+
+router.delete('/users',
+    logic.deleteUser
+)
+
+router.post('/certify',
+    logic.certifyDoc
 )
 
 
