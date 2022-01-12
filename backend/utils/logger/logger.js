@@ -14,6 +14,12 @@ const  logger = {
             + " on " + chalk.green(`${ req.baseUrl + req.path }`)
             );
         next();
+    },
+
+    logUnauthrized: (info) => {
+        console.log(
+            chalk.red("Access Denied ") + " -- " + info
+        )
     }
 }
 
