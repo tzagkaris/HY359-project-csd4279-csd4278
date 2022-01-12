@@ -25,7 +25,22 @@ const openStore = {
 
         })
              
-    }
+    },
+
+    getLogin: (user, name, pass) => {
+
+        return new Promise((resolve, reject) => {
+            
+            db(user).where({username: name, password: pass})
+            .then(res => {
+                if(res.length) resolve(res)
+                else resolve(0)
+            })
+            .catch(error => {
+                reject(error)
+            })    
+        })
+    } 
 
 } 
 
