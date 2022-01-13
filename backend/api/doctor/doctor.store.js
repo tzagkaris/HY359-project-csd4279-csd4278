@@ -26,6 +26,17 @@ const doctorStore = {
         })
     },
 
+    updateAppointmentState: (doc_id, ap_id, newState) => {
+
+        return new Promise((resolve, reject) => {
+            
+            db('appointment').where({doctor_id: doc_id, _id: ap_id})
+            .update({state: newState})
+            .then(r => resolve(r))
+            .catch(er => reject(er))
+        })
+    }
+
     
 }
 

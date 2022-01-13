@@ -19,6 +19,10 @@ router.put('/appointment',
     logic.addNewAppointment
 )
 
+router.post('/appointment',
+    logic.changeAppointmentState
+)
+
 router.get('/appointments', 
     logic.getAppointments
 )

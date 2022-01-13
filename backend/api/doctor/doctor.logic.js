@@ -77,6 +77,29 @@ const doctorLogic = {
         })
     },
 
+    /* post appointment */
+    changeAppointmentState: (req, res, next) => {
+        let newState = req.body.newState;
+        let ap_id = req.body.appointment_id;
+
+        if(!newState || !ap_id) {
+            next({status: 'error', desc: 'Missing arguments in request body', code: 400, refCode: 1})
+            return;
+        }
+
+        if(newState != "free" && newState != "selected" 
+            && newState != "cancelled" && newState !="done") {
+                next({status: 'error', desc: 'newState invalid value', code: 400, refCode: 2})
+                return;
+        }
+
+        let d_id = req.body.pers.id; 
+
+        store.updateAppointmentState(d_id, ap_id, newState)
+        .then(rows => res.status(200).send({status: 'ok'}))
+        .catch(er => next({status: 'error', desc: 'Internal Error', code: 500, refCode: 3}))
+    },
+
     /* get appointments */
     getAppointments: (req, res, next) => {
         let doc_id = req.body.pers.id;
