@@ -19,6 +19,9 @@ router.put('/appointment',
     logic.addNewAppointment
 )
 
+router.get('/appointments', 
+    logic.getAppointments
+)
 
 router.use(error.onError)
 

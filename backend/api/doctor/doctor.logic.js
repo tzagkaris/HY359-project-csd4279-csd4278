@@ -70,12 +70,23 @@ const doctorLogic = {
 
         store.newAppointment(appointment)
         .then(r => {
-            res.status(200).send({status: 'ok'});
+            res.status(200).send({status: 'ok', appointmentId: r[0]});
         })
         .catch(er => {
             next({status: 'error', desc: 'Internal Error', code: 500, refCode: 7})
         })
-    }
+    },
+
+    /* get appointments */
+    getAppointments: (req, res, next) => {
+        let doc_id = req.body.pers.id;
+
+        store.fetchAppointments(doc_id)
+        .then(r => res.status(200).send(r))
+        .catch(er => next({status: 'error', desc: 'Internal Error', code: 500, refCode: 1}))
+    },
+
+    
 }
 
 module.exports = { doctorLogic }
