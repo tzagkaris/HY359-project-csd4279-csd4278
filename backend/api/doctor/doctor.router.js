@@ -27,6 +27,33 @@ router.get('/appointments',
     logic.getAppointments
 )
 
+router.get('/:patient_id/bloodtests',
+    logic.isPatientDoctor,
+    logic.getPatientBloodtests
+)
+
+router.put('/:patient_id/:bloodtest_id/treatment',
+    logic.isPatientDoctor,
+    logic.checkExamExists,
+    logic.addNewTreatment
+)
+
+router.get('/patients', 
+    logic.getDocPatients,
+    logic.getDocPatientInfo
+)
+
+/* chat */
+router.get('/:patient_id/chat',
+    logic.isPatientDoctor,
+    logic.getChatLog
+)
+
+router.put('/:patient_id/chat',
+    logic.isPatientDoctor,
+    logic.addNewMessage
+)
+
 router.use(error.onError)
 
 module.exports = { routerBundle:  { router, prefix: '/doctor'} };

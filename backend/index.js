@@ -5,7 +5,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-//app.use(express.urlencoded({extended: true}));    //not needed 
+app.use(express.urlencoded({extended: false}));    // extended is not needed 
 
 /* initialize and connect to the database */
 const database = require('./database/database.js');
