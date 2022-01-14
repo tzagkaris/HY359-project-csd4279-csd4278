@@ -44,6 +44,7 @@ router.get('/patients',
 )
 
 /* chat */
+
 router.get('/:patient_id/chat',
     logic.isPatientDoctor,
     logic.getChatLog
@@ -52,6 +53,15 @@ router.get('/:patient_id/chat',
 router.put('/:patient_id/chat',
     logic.isPatientDoctor,
     logic.addNewMessage
+)
+
+router.get('/chat/new',
+    logic.getUnreadDoc
+)
+
+router.post('/:patient_id/chat',
+    logic.isPatientDoctor,
+    logic.markAllReadDoc
 )
 
 router.use(error.onError)
