@@ -242,6 +242,29 @@ const doctorLogic = {
     },
 
     /* chat */
+    getUnreadDoc: (req, res, next) => {
+
+        let d_id = req.body.pers.id;
+
+        store.getAllUnreadDoc(d_id)
+        .then(r => {
+            if(r.length) res.status(200).send({status: 'ok', new: 1})
+            else res.status(200).send({status: 'ok', new: 0})
+
+        })
+        .catch(er => next({status: 'error', desc: 'Internal Error', code: 500, refCode: 1}))
+    },
+
+    markAllReadDoc: (req, res, next) => {
+
+        let d_id = req.body.pers.id;
+        let p_id = req.params.patient_id;
+
+        store.markAllReadDoc(d_id, p_id)
+        .then(r => res.status(200).send({status: 'ok'}))
+        .catch(er => next({status: 'error', desc: 'Internal Error', code: 500, refCode: 1}))
+    },
+
     getChatLog: (req, res, next) => {
 
         let p_id = req.params.patient_id;

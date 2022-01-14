@@ -135,6 +135,25 @@ const doctorStore = {
             .then(r => resolve(r))
             .catch(er => reject(er))
         })
+    },
+
+    getAllUnreadDoc: (d_id) => {
+        return new Promise((resolve, reject) => {
+
+            db('message').where({doctor_id: d_id, isRead: 0})
+            .then(r => resolve(r))
+            .catch(er => reject(er))    
+        } )
+    },
+
+    markAllReadDoc: (d_id, p_id) => {
+        return new Promise((resolve, reject) => {
+            
+            db('message').where({doctor_id: d_id, patient_id: p_id, isRead: 0})
+            .update({isRead: 1})
+            .then(r => resolve(r))
+            .catch(er => reject(er))    
+        })
     }
 
     
