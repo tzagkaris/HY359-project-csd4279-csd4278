@@ -24,6 +24,9 @@ class Authenticator {
             let token = jwt.verify(req.headers.authentication, secret);
             if(!token) throw {reason: 'Invalid Token.'}
             if(token.accType != this.valid) throw {reason: 'Account Type Missmatch.'}
+            if(req.body.pers) throw {reason: 'Tampering detected on request.'}
+            /* all good, save id and acctype in request in order to be propagated to the rest of the chain */
+            req.body.pers = {accType: token.accType, id: token.id}            
         }
         catch(ex) {
             if(!ex.reason) ex.reason = 'Invalid Token';
@@ -32,14 +35,14 @@ class Authenticator {
             return;
         }
 
-        next(); //TO DO
+        next(); // next middleware
     }
 }
 
 const auth = {
 
-    newToken: (accountType, username) => {
-        return jwt.sign({accType: accountType, username: username}, secret);
+    newToken: (accountType, id) => {
+        return jwt.sign({accType: accountType, id: id}, secret);
     }
 }
 

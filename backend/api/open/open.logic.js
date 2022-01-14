@@ -12,7 +12,7 @@ const checkDbLoginInfo = (type, username, password) => {
         store.getLogin(type, username, password)
         .then(res => {
             if(!res) resolve(0)
-            else resolve(type)
+            else resolve({type: type, id: res[0]._id})
         })
         .catch(error => {
             reject(error)
@@ -115,13 +115,18 @@ const openLogic = {
         ])
         .then((values) => {
             let accType = undefined;
+            let id = undefined;
             values.forEach(val => {
-                if(val && !val.errno) accType = val; 
-            })
+                if(val && val.type) {
+                    accType = val.type; 
+                    id = val.id;
+                }
+                })
 
             /* account found, cont here */
             if(accType) {
                 req.body.at = accType;
+                req.body.id = id;
                 next()
                 return;
             
@@ -138,8 +143,7 @@ const openLogic = {
     },
 
     generateToken: (req, res, next) => {
-
-        let tok = auth.newToken(req.body.at, req.body.username)
+        let tok = auth.newToken(req.body.at, req.body.id)
         res.status(200).send({status: 'ok', accountType: req.body.at ,token: tok});
     },
 

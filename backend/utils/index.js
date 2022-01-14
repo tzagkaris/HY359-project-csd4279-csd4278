@@ -13,6 +13,25 @@ const util_functions = {
         if(toCheck.year == year && toCheck.month == month && toCheck.day > day) return 1;
         
         return 0;
+    },
+
+    unbundleUTCdate: (dateStr) => {
+
+        let date = dateStr.split("-");
+        /* year-month-day format ex: ( 2000-03-01T10:20:30Z )*/
+        let day = date[2].substring(0,2);
+        let month = date[1]
+        let year = date[0]
+
+        return {day: parseInt(day), month: parseInt(month), year: parseInt(year)}
+    },
+
+    unbundleUTCTime: (dateStr) => {
+
+        let time = dateStr.split("T")
+        time = time[1].split(":")
+        
+        return {hour: parseInt(time[0]), min: parseInt(time[1]), sec: parseInt(time[2].substring(0,2))}
     }
 }
 
