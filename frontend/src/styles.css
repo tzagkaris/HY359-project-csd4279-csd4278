@@ -107,15 +107,38 @@ h1, h2, h3, h4 {
   margin-top: .9rem;
 }
 
+.no-top {
+  margin-top: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
 /* GENERAL DEFAULTS */
 
 input {
   min-width: 200px;
   height: 30px;
   font-size: .9rem;
+  font-weight: 300;
 
   padding-left: .3rem;
   font-family: ReadexPro;
+}
+
+select {
+  min-width: 200px;
+  height: 30px;
+  font-size: .9rem;
+  font-weight: 300;
+
+  padding-left: .3rem;
+  font-family: ReadexPro;
+}
+
+label {
+  font-size: 1.2rem;
 }
 
 .bounded-textbox {
@@ -148,6 +171,11 @@ input {
   background-color: var(--c-red);
 }
 
+.button-big {
+  width: 150px;
+  height: 50px;
+}
+
 
 .button * {
   appearance: none;
@@ -156,6 +184,10 @@ input {
   font-size: 1rem;
   font-weight: 500;
   color: var(--c-sugar-white)
+}
+
+.button-big * {
+  font-size: 1.4rem;
 }
 
 .button:hover,
