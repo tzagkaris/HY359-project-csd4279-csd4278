@@ -1,0 +1,39 @@
+.register-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+.register-col {
+  margin: 2rem;
+  padding: 2rem;
+  width: 400px;
+
+/*   display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  justify-content: space-evenly; */
+}
+
+.register-entry {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 1.6rem;
+}
+
+.register-entry--btn  {
+  justify-content: center;
+}
+
+.register-entry select {
+  width: 210px;
+}
+
