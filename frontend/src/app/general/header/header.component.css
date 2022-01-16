@@ -1,0 +1,51 @@
+/* HEADER */
+
+header {
+  margin: 0;
+  padding: 0;
+
+  padding-block: .4rem;
+  padding-inline: .4rem;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  width: 100%;
+  border-bottom: 2px solid black;
+  font-size: 1rem;
+
+  gap: 1.2rem;
+}
+
+.header__img {
+  padding-inline: .5rem;
+}
+
+.header__title {
+  margin-right: auto;
+  font-weight: 400;
+}
+
+.header__settings {
+  padding-inline: 2rem;
+}
+
+@media only screen and (max-width: 400px) {
+
+  header {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+}
+
+.setting__icon:hover {
+  animation: setting_rotate 600ms linear 0ms 1 normal none;
+}
+
+@keyframes setting_rotate {
+  100% {transform: rotate(180deg); transform-origin: center center;}
+}

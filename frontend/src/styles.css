@@ -1,0 +1,118 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: ReadexPro;
+  src: url('./assets/fonts/Readex_Pro/ReadexPro-VariableFont_wght.ttf');
+}
+
+:root {
+  --c-blue: #4676F2;
+  --c-green: #3ABA47;
+  --c-red: #BA3A3A;
+  --c-sugar-white: #f7f7f7;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: ReadexPro;
+  font-weight: 400;
+  background-color: var(--c-sugar-white)
+}
+
+/* COLORS */
+
+.c-blue {
+  color: var(--c-blue)
+}
+.c-b-blue {
+  background-color: var(--c-blue)
+}
+
+.c-green {
+  color: var(--c-green)
+}
+.c-b-green {
+  background-color: var(--c-green)
+}
+
+.c-red {
+  color: var(--c-red)
+}
+.c-b-red {
+  background-color: var(--c-red)
+}
+
+.c-main {
+  color: var(--c-sugar-white)
+}
+.c-b-main {
+  background-color: var(--c-sugar-white)
+}
+
+/* TEXT SIZES */
+.title-1 {
+  font-size: 2rem;
+}
+
+.title-2 {
+  font-size: 1.8rem;
+}
+
+.text-1 {
+  font-size: 1.5rem;
+}
+
+.text-2 {
+  font-size: 1.2rem;
+}
+
+.text-3 {
+  font-size: 1rem;
+}
+
+.text-4 {
+  font-size: .8rem;
+}
+
+/* MISC */
+.border-prim {
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid #989898;
+}
+
+.shadow-prim {
+  box-shadow: 0px 4px 2px #A2A2A2;
+}
+
+.divider {
+  border-top: 2px solid black;
+}
+
+/* ALIGNMENT */
+.pm-0 {
+  padding: 0;
+  margin: 0;
+}
+
+.mt-1 {
+  margin-top: .9rem;
+}
+
+
+
+
+
+
+/* old - keeping them just in case */
+
+.page-container {
+  min-width:  99vw;
+  min-height: 98vh;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+
