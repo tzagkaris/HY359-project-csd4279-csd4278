@@ -20,6 +20,10 @@ body {
   background-color: var(--c-sugar-white)
 }
 
+h1, h2, h3, h4 {
+  font-weight: 400;
+}
+
 /* COLORS */
 
 .c-blue {
@@ -75,9 +79,13 @@ body {
   font-size: .8rem;
 }
 
+.thin-text {
+  font-weight: 300;
+}
+
 /* MISC */
 .border-prim {
-  border-radius: 0px 5px 5px 0px;
+  border-radius: 5px 5px 5px 5px;
   border: 1px solid #989898;
 }
 
@@ -99,9 +107,61 @@ body {
   margin-top: .9rem;
 }
 
+/* GENERAL DEFAULTS */
+
+input {
+  min-width: 200px;
+  height: 30px;
+  font-size: .9rem;
+
+  padding-left: .3rem;
+  font-family: ReadexPro;
+}
+
+.bounded-textbox {
+  width: 340px;
+}
+
+.float-right {
+  float: right;
+}
+
+.button {
+  background-color: var(--c-blue);
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.button-green {
+  background-color: var(--c-green);
+}
+
+.button-red {
+  background-color: var(--c-red);
+}
 
 
+.button * {
+  appearance: none;
+  border: none;
+  background-color: unset;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--c-sugar-white)
+}
 
+.button:hover,
+.button *:hover {
+  cursor: pointer;
+}
 
 
 /* old - keeping them just in case */
