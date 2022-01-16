@@ -4,8 +4,8 @@ const util_functions = {
     isFutureDate : (toCheck) => {
 
         let current_date = new Date()
-        let day = current_date.getUTCDay()
-        let month = current_date.getUTCMonth()
+        let day = current_date.getUTCDate()
+        let month = current_date.getUTCMonth() + 1
         let year = current_date.getUTCFullYear()
 
         if(toCheck.year > year) return 1;

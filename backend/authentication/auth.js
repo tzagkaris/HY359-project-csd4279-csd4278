@@ -34,7 +34,7 @@ class Authenticator {
             logger.logUnauthrized(ex.reason);
             return;
         }
-
+        
         next(); // next middleware
     }
 }

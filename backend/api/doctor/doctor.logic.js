@@ -237,7 +237,16 @@ const doctorLogic = {
 
         let id_list = req.body.p_ids;
         store.fetchPatientsList(id_list)
-        .then(r => res.status(200).send(r))
+        .then(r => {
+            
+            r.forEach(elem => {
+                delete elem.password
+                delete elem.email
+            })
+            
+            res.status(200).send(r)
+        
+        })
         .catch(er => next({status: 'error', desc: 'Internal Error', code: 500, refCode: 3}))
     },
 
