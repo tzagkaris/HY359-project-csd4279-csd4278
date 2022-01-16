@@ -1,0 +1,25 @@
+.login-container {
+  width: 100%;
+  border-bottom: 2px solid black;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: flex-end;
+
+}
+
+.login-container * {
+
+  margin: .5rem;
+  margin-inline: 1rem;
+}
+
+@media only screen and (max-width: 775px) {
+  .login-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+}

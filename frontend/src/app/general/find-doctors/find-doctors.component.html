@@ -1,0 +1,14 @@
+<div class="find-doctors-container">
+  <h1 class="ftittle">Certified Doctors:</h1>
+  <div class="doctor-list-container">
+
+    <app-blocklist-entry *ngFor="let ent of entries" [isCertified]="true" [info]="ent" (buttonOutput)="buttonClicked($event)"></app-blocklist-entry>
+
+  </div>
+  <div class="pinned-map-container">
+    <!-- Will be implemented later -->
+  </div>
+  <div class="filter-options-container">
+    <!-- Will be implemented later-->
+  </div>
+</div>

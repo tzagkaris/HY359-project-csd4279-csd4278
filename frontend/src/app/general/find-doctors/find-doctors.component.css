@@ -1,0 +1,62 @@
+.find-doctors-container{
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+
+  gap: 1rem;
+}
+
+.doctor-list-container {
+  margin: 2rem;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  gap: 2rem;
+}
+
+.doctor-entry {
+  padding: 1rem;
+  width: 460px;
+  position: relative;
+}
+
+/* .actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+
+  align-items: center;
+  gap: 3rem;
+} */
+
+.actions {
+  position: absolute;
+  bottom: 3%;
+  right: 2%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+
+  align-items: center;
+  gap: .5rem;
+}
+
+.cert {
+  position: absolute;
+  top: 4%;
+  right: 2%;
+}
+
+.ftittle {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  padding-left: 3rem;
+}

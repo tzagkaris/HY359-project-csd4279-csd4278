@@ -8,6 +8,10 @@ import { IndexComponent } from './pages/index/index.component';
 import { FooterComponent } from './general/footer/footer.component';
 import { HeaderLoggedComponent } from './general/header-logged/header-logged.component';
 import { LoginComponent } from './general/login/login.component';
+import { FindDoctorsComponent } from './general/find-doctors/find-doctors.component';
+import { BlocklistEntryComponent } from './general/blocklist-entry/blocklist-entry.component';
+import { CommonModule } from '@angular/common';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +20,13 @@ import { LoginComponent } from './general/login/login.component';
     IndexComponent,
     FooterComponent,
     HeaderLoggedComponent,
-    LoginComponent
+    LoginComponent,
+    FindDoctorsComponent,
+    BlocklistEntryComponent,
+    RegisterComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule
   ],
