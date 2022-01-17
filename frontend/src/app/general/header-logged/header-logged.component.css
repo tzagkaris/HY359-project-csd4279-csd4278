@@ -4,6 +4,9 @@ header {
   margin: 0;
   padding: 0;
 
+  padding-block: .4rem;
+  padding-inline: .4rem;
+
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

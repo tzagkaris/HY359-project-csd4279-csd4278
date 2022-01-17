@@ -1,0 +1,19 @@
+<div class="doctor-entry border-prim shadow-prim">
+  <img *ngIf="info.isCertified" class="cert" src="./../../../assets/certified.svg" alt="certified" title="This doctor was certified by an administrator.">
+  <div class="info-list">
+    <h2>{{info.name}}</h2>
+    <h3>Location: <span class="thin-text">{{info.location}}</span></h3>
+    <h3 class="bounded-textbox">Phone Number: <span class="thin-text float-right">{{info.number}}</span></h3>
+    <h3 class="bounded-textbox">Specialty: <span class="thin-text float-right">{{info.specialty}}</span></h3>
+    <h3 class="bounded-textbox">More Info: </h3>
+    <h4 class="bounded-textbox thin-text">{{info.more}}</h4>
+  </div>
+  <div class="actions">
+    <div class="wrapper" *ngFor="let ac of info.actions">
+      <div class="info-button" [ngClass]="ac.colorClass" (click)="ac.clickFunc()">
+        <button>{{ac.text}}</button>
+      </div>
+
+    </div>
+  </div>
+</div>
