@@ -25,3 +25,7 @@ nav {
 
   justify-self: flex-end;
 }
+
+.logout {
+  color: rgb(99, 22, 22);
+}

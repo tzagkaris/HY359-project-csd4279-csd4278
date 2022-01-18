@@ -10,6 +10,8 @@ export interface BlocklistEntry_doctor {
   more?: string,
   isCertified: number,
 
+  original_index: number,
+
   actions?: Actions[]
 }
 
@@ -45,6 +47,8 @@ export interface BlocklistEntry_patient {
   birthdate?: string,
   weight?: number,
   height?: number,
+
+  original_index: number,
 
   actions?: Actions[]
 }

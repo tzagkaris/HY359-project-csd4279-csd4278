@@ -1,11 +1,11 @@
 <nav class="divider-bottom">
   <h2 class="nav-title">{{navBundle.tag}}</h2>
   <div class="nav-items">
-    <div class="nav-item" *ngFor="let link of navBundle.links">
-      <h3 (click)="navigate(link.redirectTo)">{{link.tag}}</h3>
+    <div class="nav-item clickable" *ngFor="let link of navBundle.links">
+      <h3 class="black" (click)="navigate(link.redirectTo)">{{link.tag}}</h3>
     </div>
-    <div class="nav-item">
-      <h3 (click)="logout()">Logout</h3>
+    <div class="nav-item clickable">
+      <h3 class="logout" (click)="logout()">Logout</h3>
     </div>
   </div>
 </nav>

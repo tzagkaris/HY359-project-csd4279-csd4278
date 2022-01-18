@@ -48,14 +48,14 @@ const adminLogic = {
 
     deleteUser: (req, res, next) => {
 
-        if(!req.body.amka) {
+        if(!req.params.amka) {
             next({status: 'error', desc: 'Amka not specified', code: 400, refCode: 2})
             return;
         }
 
         Promise.all([
-            delType('patient', req.body.amka),
-            delType('doctor', req.body.amka)
+            delType('patient', req.params.amka),
+            delType('doctor', req.params.amka)
         ])
         .then(r => {
             res.status(200).send({status: 'ok'})

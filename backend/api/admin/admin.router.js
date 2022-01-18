@@ -15,7 +15,7 @@ router.get('/users',
     logic.getUsers
 )
 
-router.delete('/users',
+router.delete('/users/:amka',
     logic.deleteUser
 )
 
