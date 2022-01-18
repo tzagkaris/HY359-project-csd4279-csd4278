@@ -10,7 +10,7 @@
   </div>
   <div class="actions">
     <div class="wrapper" *ngFor="let ac of info.actions">
-      <div class="info-button" [ngClass]="ac.colorClass" (click)="ac.clickFunc()">
+      <div class="info-button button" [ngClass]="ac.colorClass" (click)="ac.clickFunc()">
         <button>{{ac.text}}</button>
       </div>
 

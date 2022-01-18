@@ -1,14 +1,14 @@
 <div class="login-container">
   <div class="username-input">
-    <input type="text" placeholder="Username">
+    <input type="text" placeholder="Username" [formControl]="usernameControl">
   </div>
   <div class="password-input">
-    <input type="password" placeholder="Password">
+    <input type="password" placeholder="Password" [formControl]="passwordControl">
   </div>
-  <div class="button login-button">
+  <div class="button login-button" (click)="tryLogin()" #loginHandleRef>
     <button>Login</button>
   </div>
-  <div class="button button-green register-button">
+  <div class="button button-green register-button" [routerLink]="'/register'">
     <button>Register</button>
   </div>
 </div>

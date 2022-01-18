@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthAdminGuard } from './guards/auth-admin.guard';
+import { AuthDoctorGuard } from './guards/auth-doctor.guard';
+import { AuthPatientGuard } from './guards/auth-patient.guard';
 import { AdminComponent } from './pages/admin/admin.component';
 import { DoctorAppointmentsComponent } from './pages/doctor-appointments/doctor-appointments.component';
 import { DoctorIndexComponent } from './pages/doctor-index/doctor-index.component';
@@ -12,12 +15,12 @@ import { RegisterComponent } from './pages/register/register.component';
 const routes: Routes = [
   {path: 'index', component: IndexComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'patient/index', component: PatientIndexComponent},
-  {path: 'patient/mybloodtests', component: PatientMybloodtestsComponent},
-  {path: 'patient/mydoctors', component: PatientMydoctorsComponent},
-  {path: 'doctor/index', component: DoctorIndexComponent},
-  {path: 'doctor/appointments', component: DoctorAppointmentsComponent},
+  {path: 'admin', component: AdminComponent, canActivate: [AuthAdminGuard]},
+  {path: 'patient/index', component: PatientIndexComponent, canActivate: [AuthPatientGuard]},
+  {path: 'patient/mybloodtests', component: PatientMybloodtestsComponent, canActivate: [AuthPatientGuard]},
+  {path: 'patient/mydoctors', component: PatientMydoctorsComponent, canActivate: [AuthPatientGuard]},
+  {path: 'doctor/index', component: DoctorIndexComponent, canActivate: [AuthDoctorGuard]},
+  {path: 'doctor/appointments', component: DoctorAppointmentsComponent, canActivate: [AuthDoctorGuard]},
   {path: '**', redirectTo: 'index'}
 ];
 

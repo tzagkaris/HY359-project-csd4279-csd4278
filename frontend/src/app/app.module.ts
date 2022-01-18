@@ -21,6 +21,9 @@ import { PatientMybloodtestsComponent } from './pages/patient-mybloodtests/patie
 import { DoctorIndexComponent } from './pages/doctor-index/doctor-index.component';
 import { DoctorAppointmentsComponent } from './pages/doctor-appointments/doctor-appointments.component';
 
+import { HttpClientModule } from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,9 @@ import { DoctorAppointmentsComponent } from './pages/doctor-appointments/doctor-
   imports: [
     CommonModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
