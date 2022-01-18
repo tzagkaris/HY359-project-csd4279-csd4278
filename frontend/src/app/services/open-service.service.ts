@@ -13,13 +13,15 @@ export class OpenServiceService {
     return this.openHttp.fetchCertified()
   }
 
-  docs_toBlocklist(docs: doctor[], logState: boolean) {
+  docs_toBlocklist_index(docs: doctor[]) {
 
     let certDocs: BlocklistEntry_doctor[] = []
 
-    docs.forEach((element: doctor) => {
+    docs.forEach((element, index) => {
       certDocs.push(
-        {isCertified: 1,
+        {
+        original_index: index,
+        isCertified: 1,
         name: element.lastname + ' ' + element.firstname,
         location: `${element.address}, ${element.city}, ${element.country}`,
         number: `+30 ${element.telephone}`,
@@ -28,7 +30,6 @@ export class OpenServiceService {
         more: `- ${element.doctor_info}`,
         actions: [
           {text: "Map", colorClass: "button-green",clickFunc: () => {} },
-          {text: "More", colorClass: "",clickFunc: () => {} },
         ]
       })
     })

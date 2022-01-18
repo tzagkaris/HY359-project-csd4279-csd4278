@@ -20,7 +20,7 @@ export class FindDoctorsComponent implements OnInit {
 
     this.openService.getDocs()
     .subscribe(docs => {
-      this.entries = this.openService.docs_toBlocklist(docs, false)
+      this.entries = this.openService.docs_toBlocklist_index(docs)
     })
   }
 

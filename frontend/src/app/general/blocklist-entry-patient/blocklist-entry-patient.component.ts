@@ -18,9 +18,10 @@ export class BlocklistEntryPatientComponent implements OnInit {
 
     if(this.info.actions)
     this.info.actions.forEach((element, index) => {
-      if(!element.validFunc)
+      if(!element.validFunc) {
         /* if function provided is not "valid", propagete button press to parent */
         element.clickFunc = () => { this.buttonOutput.emit({id: this.info.id, buttonIndex: index})}
+      }
     });
   }
 

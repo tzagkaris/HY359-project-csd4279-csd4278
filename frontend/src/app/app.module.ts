@@ -20,9 +20,11 @@ import { PatientMydoctorsComponent } from './pages/patient-mydoctors/patient-myd
 import { PatientMybloodtestsComponent } from './pages/patient-mybloodtests/patient-mybloodtests.component';
 import { DoctorIndexComponent } from './pages/doctor-index/doctor-index.component';
 import { DoctorAppointmentsComponent } from './pages/doctor-appointments/doctor-appointments.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

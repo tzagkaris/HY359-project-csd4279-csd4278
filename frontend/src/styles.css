@@ -179,6 +179,18 @@ label {
   background-color: var(--c-red);
 }
 
+.button-white {
+  background-color: var(--c-sugar-white);
+}
+
+.clickable {
+  user-select: none;
+}
+
+.clickable:hover {
+  cursor: pointer;
+}
+
 .button-big {
   width: 150px;
   height: 50px;
