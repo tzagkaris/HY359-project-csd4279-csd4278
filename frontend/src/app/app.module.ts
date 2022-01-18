@@ -9,9 +9,20 @@ import { FooterComponent } from './general/footer/footer.component';
 import { HeaderLoggedComponent } from './general/header-logged/header-logged.component';
 import { LoginComponent } from './general/login/login.component';
 import { FindDoctorsComponent } from './general/find-doctors/find-doctors.component';
-import { BlocklistEntryComponent } from './general/blocklist-entry/blocklist-entry.component';
+import { BlocklistDoctorEntryComponent } from './general/blocklist-entry_doctor/blocklist-entry_doctor.component';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './pages/register/register.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { NavBarComponent } from './general/nav-bar/nav-bar.component';
+import { BlocklistEntryPatientComponent } from './general/blocklist-entry-patient/blocklist-entry-patient.component';
+import { PatientIndexComponent } from './pages/patient-index/patient-index.component';
+import { PatientMydoctorsComponent } from './pages/patient-mydoctors/patient-mydoctors.component';
+import { PatientMybloodtestsComponent } from './pages/patient-mybloodtests/patient-mybloodtests.component';
+import { DoctorIndexComponent } from './pages/doctor-index/doctor-index.component';
+import { DoctorAppointmentsComponent } from './pages/doctor-appointments/doctor-appointments.component';
+
+import { HttpClientModule } from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,13 +33,23 @@ import { RegisterComponent } from './pages/register/register.component';
     HeaderLoggedComponent,
     LoginComponent,
     FindDoctorsComponent,
-    BlocklistEntryComponent,
-    RegisterComponent
+    BlocklistDoctorEntryComponent,
+    RegisterComponent,
+    AdminComponent,
+    NavBarComponent,
+    BlocklistEntryPatientComponent,
+    PatientIndexComponent,
+    PatientMydoctorsComponent,
+    PatientMybloodtestsComponent,
+    DoctorIndexComponent,
+    DoctorAppointmentsComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

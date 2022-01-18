@@ -97,6 +97,10 @@ h1, h2, h3, h4 {
   border-top: 2px solid black;
 }
 
+.divider-bottom {
+  border-bottom: 2px solid black;
+}
+
 /* ALIGNMENT */
 .pm-0 {
   padding: 0;
@@ -109,6 +113,10 @@ h1, h2, h3, h4 {
 
 .no-top {
   margin-top: 0;
+}
+
+.no-bot {
+  margin-bottom: 0;
 }
 
 .text-center {

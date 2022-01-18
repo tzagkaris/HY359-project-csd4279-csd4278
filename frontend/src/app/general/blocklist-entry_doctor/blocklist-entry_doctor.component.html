@@ -1,5 +1,5 @@
 <div class="doctor-entry border-prim shadow-prim">
-  <img *ngIf="isCertified" class="cert" src="./../../../assets/certified.svg" alt="certified" title="This doctor was certified by an administrator.">
+  <img *ngIf="info.isCertified" class="cert" src="./../../../assets/certified.svg" alt="certified" title="This doctor was certified by an administrator.">
   <div class="info-list">
     <h2>{{info.name}}</h2>
     <h3>Location: <span class="thin-text">{{info.location}}</span></h3>
@@ -10,7 +10,7 @@
   </div>
   <div class="actions">
     <div class="wrapper" *ngFor="let ac of info.actions">
-      <div class="info-button" [ngClass]="ac.colorClass" (click)="ac.clickFunc()">
+      <div class="info-button button" [ngClass]="ac.colorClass" (click)="ac.clickFunc()">
         <button>{{ac.text}}</button>
       </div>
 

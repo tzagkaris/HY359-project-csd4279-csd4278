@@ -1,0 +1,16 @@
+<app-header-logged></app-header-logged>
+<app-nav-bar [navBundle]="navBarBundle"></app-nav-bar>
+
+<!-- Because admin has only one thing, rest of the page goes here and navLink redirects here -->
+<div class="manage-users-container">
+  <h1 class="no-bot">Doctors:</h1>
+  <div class="manage-column">
+    <app-blocklist-doctor-entry *ngFor="let ent of doctors" [info]="ent" (buttonOutput)="buttonClicked($event)"></app-blocklist-doctor-entry>
+  </div>
+  <h1 class="no-bot">Patients:</h1>
+  <div class="manage-column">
+    <app-blocklist-patient-entry *ngFor="let pat of patients" [info]="pat" (buttonOutput)="buttonClicked($event)"></app-blocklist-patient-entry>
+  </div>
+</div>
+
+<app-footer></app-footer>

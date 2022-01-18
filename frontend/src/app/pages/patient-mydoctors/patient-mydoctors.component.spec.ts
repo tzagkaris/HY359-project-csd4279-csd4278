@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BlocklistEntryComponent } from './blocklist-entry.component';
+import { PatientMydoctorsComponent } from './patient-mydoctors.component';
 
-describe('BlocklistEntryComponent', () => {
-  let component: BlocklistEntryComponent;
-  let fixture: ComponentFixture<BlocklistEntryComponent>;
+describe('PatientMydoctorsComponent', () => {
+  let component: PatientMydoctorsComponent;
+  let fixture: ComponentFixture<PatientMydoctorsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BlocklistEntryComponent ]
+      declarations: [ PatientMydoctorsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BlocklistEntryComponent);
+    fixture = TestBed.createComponent(PatientMydoctorsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
