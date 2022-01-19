@@ -33,4 +33,5 @@ export class HttpAdminService {
 
     return this._http.post(this._host +'/certify', {amka: amka});
   }
+
 }

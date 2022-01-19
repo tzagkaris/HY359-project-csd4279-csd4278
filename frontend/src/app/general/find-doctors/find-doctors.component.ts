@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ThrowStmt } from '@angular/compiler';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { BlocklistEntry_doctor } from 'src/app/interfaces/blocklist-entry';
 import { ButtonEmitter } from 'src/app/interfaces/button-emitter';
 import { OpenServiceService } from 'src/app/services/open-service.service';
@@ -13,6 +14,7 @@ export class FindDoctorsComponent implements OnInit {
   constructor(private openService: OpenServiceService) { }
 
   @Input() isPatient: boolean = false;
+  @Output() buttonEvent = new EventEmitter<ButtonEmitter>();
 
   entries: BlocklistEntry_doctor[] = []
 
@@ -20,12 +22,15 @@ export class FindDoctorsComponent implements OnInit {
 
     this.openService.getDocs()
     .subscribe(docs => {
-      this.entries = this.openService.docs_toBlocklist_index(docs)
+      if(!this.isPatient) this.entries = this.openService.docs_toBlocklist_index(docs)
+      else this.entries = this.openService.docs_toBlocklist_patient(docs)
     })
   }
 
   buttonClicked = (ev: ButtonEmitter) => {
     console.log(ev)
+
+    this.buttonEvent.emit(ev);
   }
 
 }

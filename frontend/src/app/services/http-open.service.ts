@@ -36,4 +36,9 @@ export class HttpOpenService {
 
     return this._http.get<doctor[]>(this._host  + '/certified');
   }
+
+  registerUser(user: any) {
+
+    return this._http.post(this._host + '/register', user);
+  }
 }

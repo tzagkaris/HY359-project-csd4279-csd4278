@@ -21,7 +21,11 @@ export class NavBarComponent implements OnInit {
   }
 
   logout() {
-    /* to do */
+
+    localStorage.removeItem('accountType')
+    localStorage.removeItem('token')
+
+    this._router.navigateByUrl('/index');
   }
 
 }

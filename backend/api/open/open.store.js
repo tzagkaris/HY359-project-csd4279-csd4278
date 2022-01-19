@@ -13,7 +13,7 @@ const openStore = {
      */
     newUser: (user) => {
         let table = "";
-        
+
         if(user.specialty) table = "doctor"
         else table = "patient"
 

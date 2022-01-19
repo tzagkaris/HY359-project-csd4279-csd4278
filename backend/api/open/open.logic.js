@@ -82,6 +82,7 @@ const openLogic = {
         })
         .catch(error => {
             /* duplicate amka, email, username error */
+            console.log(error)
             
             if(error.errno == 19) {
                 msg_tokens = error.message.split("-");  
