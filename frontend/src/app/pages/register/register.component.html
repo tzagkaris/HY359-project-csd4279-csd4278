@@ -1,32 +1,33 @@
 <app-header></app-header>
 
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 <h1 class="text-center">Registration Form</h1>
 <div class="register-container">
   <div class="register-col border-prim shadow-prim">
     <h1 class="no-top">Account Details:</h1>
     <div class="register-entry">
       <label for="username">Usename:</label>
-      <input type="text" name="username" id="username" placeholder="Input Username">
+      <input formControlName="username" type="text" name="username" id="username" placeholder="Input Username">
     </div>
 
     <div class="register-entry">
       <label for="password">Password:</label>
-      <input type="password" name="password" id="password" placeholder="Input Password">
+      <input formControlName="password" type="password" name="password" id="password" placeholder="Input Password">
     </div>
 
     <div class="register-entry">
       <label for="firstname">Firstname:</label>
-      <input type="text" name="firstname" id="firstname" placeholder="Input your first name">
+      <input formControlName="firstname" type="text" name="firstname" id="firstname" placeholder="Input your first name">
     </div>
 
     <div class="register-entry">
       <label for="lastname">Lastname:</label>
-      <input type="text" name="lastname" id="lastname" placeholder="Input your last name">
+      <input formControlName="lastname" type="text" name="lastname" id="lastname" placeholder="Input your last name">
     </div>
 
     <div class="register-entry">
       <label for="email">Email:</label>
-      <input type="text" name="email" id="email" placeholder="Input your email address">
+      <input formControlName="email" type="text" name="email" id="email" placeholder="Input your email address">
     </div>
 
     <div class="register-entry">
@@ -40,7 +41,7 @@
     <h1 class="no-top">Location Details:</h1>
     <div class="register-entry">
       <label for="country">Country:</label>
-      <select id="country" name="country">
+      <select formControlName="country" id="country" name="country">
         <option value="Afganistan">Afghanistan</option>
         <option value="Albania">Albania</option>
         <option value="Algeria">Algeria</option>
@@ -292,27 +293,27 @@
 
     <div class="register-entry">
       <label for="city">City:</label>
-      <input type="password" name="city" id="city" placeholder="Input your city">
+      <input formControlName="city" type="text" name="city" id="city" placeholder="Input your city">
     </div>
 
     <div class="register-entry">
       <label for="address">Address:</label>
-      <input type="text" name="address" id="address" placeholder="Input your address">
+      <input formControlName="address" type="text" name="address" id="address" placeholder="Input your address">
     </div>
 
     <div class="register-entry">
       <label for="phone">Phone:</label>
-      <input type="text" name="phone" id="phone" placeholder="Input your phone number">
+      <input formControlName="telephone" type="text" name="phone" id="phone" placeholder="Input your phone number">
     </div>
 
     <div class="register-entry">
       <label for="lon">Longitude:</label>
-      <input type="text" name="lon" id="lon" placeholder="Input your longitude">
+      <input formControlName="lon" type="text" name="lon" id="lon" placeholder="Input your longitude">
     </div>
 
     <div class="register-entry">
       <label for="lat">Latitude:</label>
-      <input type="text" name="lat" id="lat" placeholder="Input your Latitude">
+      <input formControlName="lat" type="text" name="lat" id="lat" placeholder="Input your Latitude">
     </div>
 
     <!-- <div class="register-entry register-entry--btn">
@@ -327,12 +328,12 @@
     <h1 class="no-top">Medical Details:</h1>
     <div class="register-entry">
       <label for="birthdate">Birthdate:</label>
-      <input type="date" name="birthdate" id="birthdate" placeholder="Input Birthdate">
+      <input formControlName="birthdate" type="date" name="birthdate" id="birthdate" placeholder="Input Birthdate">
     </div>
 
     <div class="register-entry">
       <label for="gender">Gender:</label>
-      <select name="gender" id="gender">
+      <select formControlName="gender" name="gender" id="gender">
         <option value="male">Male</option>
         <option value="female">Female</option>
         <option value="other">Other</option>
@@ -341,22 +342,22 @@
 
     <div class="register-entry">
       <label for="amka">Amka:</label>
-      <input type="text" name="amka" id="amka" placeholder="Input your amka">
+      <input formControlName="amka" type="text" name="amka" id="amka" placeholder="Input your amka">
     </div>
 
     <div class="register-entry">
       <label for="height">Height:</label>
-      <input type="number" name="height" id="height" placeholder="Input your height in cm">
+      <input formControlName="height" type="number" name="height" id="height" placeholder="Input your height in cm">
     </div>
 
     <div class="register-entry">
       <label for="weight">Weight:</label>
-      <input type="number" step="0.1" name="weight" id="weight" placeholder="Input your weight in kg">
+      <input formControlName="weight" type="number" step="0.1" name="weight" id="weight" placeholder="Input your weight in kg">
     </div>
 
     <div class="register-entry">
       <label for="bloodtype">Blood Type:</label>
-      <select name="bloodtype" id="bloodtype">
+      <select formControlName="bloodtype" name="bloodtype" id="bloodtype">
         <option value="A-">A -</option>
         <option value="A+">A +</option>
         <option value="B+">B +</option>
@@ -369,8 +370,8 @@
     </div>
 
     <div class="register-entry">
-      <label for="blooddonor">Doctor Donor:</label>
-      <input type="checkbox" name="blooddonor" id="blooddonor" placeholder="">
+      <label for="blooddonor">Blood Donor:</label>
+      <input formControlName="blooddonor" type="checkbox" name="blooddonor" id="blooddonor" placeholder="">
     </div>
 
   </div>
@@ -380,12 +381,12 @@
 
     <div class="register-entry">
       <label for="specialty">Specialty:</label>
-      <input type="text" name="specialty" id="specialty" placeholder="Input Specialty">
+      <input formControlName="specialty" type="text" name="specialty" id="specialty" placeholder="Input Specialty">
     </div>
 
     <div class="register-entry">
       <label for="moreinfo">More Info:</label>
-      <input type="text" name="moreinfo" id="moreinfo" placeholder="Input a catchfrase">
+      <input formControlName="doctor_info" type="text" name="moreinfo" id="moreinfo" placeholder="Input a catchfrase">
     </div>
 
   </div>
@@ -394,12 +395,12 @@
 
     <div class="register-entry register-entry--btn">
       <div class="button button-big button-green map-button">
-        <button>Register</button>
+        <button type="submit">Register</button>
       </div>
     </div>
 
   </div>
 
 </div>
-
+</form>
 <app-footer></app-footer>

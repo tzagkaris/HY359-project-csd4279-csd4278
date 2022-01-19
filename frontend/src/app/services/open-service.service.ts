@@ -36,4 +36,24 @@ export class OpenServiceService {
 
     return certDocs;
   }
+
+  docs_toBlocklist_patient(docs: doctor[]) {
+
+    let certDocs = this.docs_toBlocklist_index(docs);
+
+    certDocs.forEach(cdoc => {
+
+      cdoc.actions?.push({
+        /* don't want special function to run, just propagete button press */
+        text: 'More', colorClass: '', validFunc: false, clickFunc: () => {}
+      })
+    })
+
+    return certDocs;
+  }
+
+  registerUser(user: any) {
+
+    return this.openHttp.registerUser(user);
+  }
 }

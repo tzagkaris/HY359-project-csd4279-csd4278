@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ButtonEmitter } from 'src/app/interfaces/button-emitter';
 import { NavBundle } from 'src/app/interfaces/nav-bundle';
 
 @Component({
@@ -17,6 +18,10 @@ export class PatientIndexComponent implements OnInit {
       {tag: 'My Doctors', redirectTo: '/patient/mydoctors'},
       {tag: 'Find Doctors', redirectTo: '/patient/index'},
     ]
+  }
+
+  onOptionClicked(ev: ButtonEmitter) {
+    console.log('Got: ', ev);
   }
 
   ngOnInit(): void {
