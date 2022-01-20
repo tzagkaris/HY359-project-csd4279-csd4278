@@ -1,0 +1,16 @@
+<div class="bloodtestlist">
+  <table [width]="800" cellspacing="0" cellpadding="0">
+    <tr>
+      <th>Date</th>
+      <th>Reading</th>
+      <th>Rating</th>
+      <th>Percentage</th>
+    </tr>
+    <tr *ngFor="let row of bloodTestBlocks">
+      <td>{{row.bt.date.split('T')[0]}}</td>
+      <td>{{row.selectedRatingReading}}</td>
+      <td [class.red]="row.selectedRatingRating != normal">{{row.selectedRatingRating}}</td>
+      <td>{{ Math.abs(Math.floor(row.perc)) }} % <img [src]="row.currentSrc" width="12px" height="12px" alt=""> </td>
+    </tr>
+  </table>
+</div>
