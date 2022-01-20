@@ -1,5 +1,5 @@
 <div class="find-doctors-container">
-  <h1 class="ftittle">Certified Doctors:</h1>
+  <h1 class="ftittle">{{topText}}</h1>
   <div class="doctor-list-container">
 
     <app-blocklist-doctor-entry *ngFor="let ent of entries" [info]="ent" (buttonOutput)="buttonClicked($event)"></app-blocklist-doctor-entry>

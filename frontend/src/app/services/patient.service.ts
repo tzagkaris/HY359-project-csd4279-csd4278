@@ -1,0 +1,35 @@
+import { Injectable } from '@angular/core';
+import { PatientHttpService } from './patient-http.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PatientService {
+
+  constructor(private ph: PatientHttpService) { }
+
+  getAppointments(doc_id: number) {
+
+    return this.ph.getAppointments(doc_id);
+  }
+
+  bookAppointment(doc_id: number, app_id: number) {
+
+    return this.ph.bookAppointment(doc_id, app_id);
+  }
+
+  getChat(doc_id: number) {
+
+    return this.ph.getChat(doc_id);
+  }
+
+  postMessage(msg: any) {
+
+    return this.ph.postMessage(msg);
+  }
+
+  getMyDoctors() {
+
+    return this.ph.getMyDoctors();
+  }
+}

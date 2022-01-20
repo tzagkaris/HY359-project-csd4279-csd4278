@@ -1,0 +1,6 @@
+<div class="appointment-container">
+  <h1>Doctor's appointments:</h1>
+  <div class="appointmentlist">
+    <app-appointment-block style="width: 100%;" *ngFor="let ap of ap_blocks" [app]="ap"></app-appointment-block>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+.chat-container {
+  margin: 2rem;
+}
+
+.message-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  align-items: center;
+}
+
+.message-entry {
+
+  width: 100%;
+}
+
+.message-entry h3 {
+  font-weight: 300;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+
+  background-color: var(--c-blue);
+  color: white;
+
+  margin: 0.5rem;
+  margin-inline: 1rem;
+  padding: .8rem;
+  border-radius: 5px;
+}
+
+.message-entry-other h3 {
+  float: right;
+  background-color: var(--c-green);
+}
+
+.send-container  {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  margin-block: 1rem;
+}
+
+.send-container input {
+  min-width: 400px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin-inline: 1rem;
+}
+
+.send-container .btn {
+  margin-right: 1rem;
+}
+

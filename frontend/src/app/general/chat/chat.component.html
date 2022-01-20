@@ -1,0 +1,15 @@
+<div class="chat-container">
+  <h1>Chat:</h1>
+  <div class="message-list">
+    <div class="message-entry" [class.message-entry-other]="msg.from != view" *ngFor="let msg of messageArr">
+      <h3>{{msg.content}}</h3>
+    </div>
+  </div>
+  <div class="send-container">
+    <input type="text" #inputRef [placeholder]="canSend ? ' ' : ' You must complete one appointment with said doctor to be able to chat.'">
+
+    <div class="btn button" [ngClass]="sendColorClass" (click)="sendMessage(inputRef)">
+      <button>Send</button>
+    </div>
+  </div>
+</div>

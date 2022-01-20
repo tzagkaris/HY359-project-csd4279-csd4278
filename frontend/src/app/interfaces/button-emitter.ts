@@ -1,5 +1,6 @@
 export interface ButtonEmitter {
 
   id: number,
-  buttonIndex: number
+  buttonIndex: number,
+  desc: string
 }
