@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { doctor } from 'src/app/interfaces/blocklist-entry';
 import { ButtonEmitter } from 'src/app/interfaces/button-emitter';
 import { NavBundle } from 'src/app/interfaces/nav-bundle';
+import { StatefulNavigationService } from 'src/app/services/stateful-navigation.service';
 
 @Component({
   selector: 'app-patient-index',
@@ -9,7 +11,7 @@ import { NavBundle } from 'src/app/interfaces/nav-bundle';
 })
 export class PatientIndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _sn: StatefulNavigationService) { }
 
   navBarBundle: NavBundle = {
     tag: 'Patient Panel',
@@ -20,11 +22,14 @@ export class PatientIndexComponent implements OnInit {
     ]
   }
 
+  selectedDoctor: doctor;
+
   onOptionClicked(ev: ButtonEmitter) {
-    console.log('Got: ', ev);
+    
   }
 
   ngOnInit(): void {
+    this.selectedDoctor = this._sn.getSavedDoc()
   }
 
 }

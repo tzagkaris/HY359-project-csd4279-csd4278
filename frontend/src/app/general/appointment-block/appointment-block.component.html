@@ -1,0 +1,7 @@
+<div class="appointment-entry border-prim shadow-prim">
+  <h2 class="ap-text">- {{app.ap.duration}} <span class="thin-text">minute appointment on</span> {{app.ap.date.split('T')[0] }}, <span class="thin-text">Start Time:</span> {{app.ap.date.split('T')[1].substring(0,app.ap.date.split('T')[1].length - 4)}}, <span class="thin-text">Price:</span> {{app.ap.price}} €</h2>
+
+  <div class="btn button" (click)="ac.clickFunc()" [ngClass]="ac.colorClass" *ngFor="let ac of app.actions">
+    <button>{{ac.text}}</button>
+  </div>
+</div>

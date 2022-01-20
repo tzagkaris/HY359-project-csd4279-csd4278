@@ -1,1 +1,7 @@
-<p>patient-mydoctors works!</p>
+<app-header-logged></app-header-logged>
+<app-nav-bar [navBundle]="navBarBundle"></app-nav-bar>
+
+<!-- index page is also the find doctors page -->
+<app-find-doctors [isPatient]="true" [myDoctors]="true" (buttonEvent)="onOptionClicked($event)" [topText]="'Your Doctors:'"></app-find-doctors>
+
+<app-footer></app-footer>

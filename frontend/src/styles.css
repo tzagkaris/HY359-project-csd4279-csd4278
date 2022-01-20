@@ -183,6 +183,14 @@ label {
   background-color: var(--c-sugar-white);
 }
 
+.button-gray {
+  background-color: rgb(118, 118, 118);
+}
+
+.invalid {
+  cursor: not-allowed;
+}
+
 .clickable {
   user-select: none;
 }

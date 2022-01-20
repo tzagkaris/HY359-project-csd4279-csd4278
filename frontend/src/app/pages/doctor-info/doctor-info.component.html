@@ -1,0 +1,21 @@
+<app-header></app-header>
+
+<!-- Doctor info display-->
+<div class="info-container divider-bottom">
+  <div class="nameContainer">
+    <h1>{{doctor.firstname + " " + doctor.lastname}}</h1>
+    <img src="./../../../assets/certified.svg" *ngIf="doctor.certified" alt="certified" title="This doctor was certified by an administrator.">
+  </div>
+  <div class="info-display">
+    <h3>Specialty: <span class="thin-text">{{doctor.specialty}}</span></h3>
+    <h3>Info: <span class="thin-text">{{doctor.doctor_info}}</span></h3>
+    <h3>Born in: <span class="thin-text">{{doctor.birthdate.split('T')[0]}}</span></h3>
+    <h3>Medical Center: <span class="thin-text">{{doctor.address + ", " + doctor.city + ", " + doctor.country}}</span></h3>
+    <h3>Phone: <span class="thin-text">+30 {{doctor.telephone}}</span></h3>
+  </div>
+</div>
+<div class="holder divider-bottom">
+  <app-selected-doctor-appointments></app-selected-doctor-appointments>
+</div>
+<app-chat [recipient_id]="doctor._id"></app-chat>
+<app-footer></app-footer>

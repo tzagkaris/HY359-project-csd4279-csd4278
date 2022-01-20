@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ChatComponent } from './general/chat/chat.component';
 import { AuthAdminGuard } from './guards/auth-admin.guard';
 import { AuthDoctorGuard } from './guards/auth-doctor.guard';
 import { AuthPatientGuard } from './guards/auth-patient.guard';
 import { AdminComponent } from './pages/admin/admin.component';
 import { DoctorAppointmentsComponent } from './pages/doctor-appointments/doctor-appointments.component';
 import { DoctorIndexComponent } from './pages/doctor-index/doctor-index.component';
+import { DoctorInfoComponent } from './pages/doctor-info/doctor-info.component';
 import { IndexComponent } from './pages/index/index.component';
 import { PatientIndexComponent } from './pages/patient-index/patient-index.component';
 import { PatientMybloodtestsComponent } from './pages/patient-mybloodtests/patient-mybloodtests.component';
@@ -19,8 +21,10 @@ const routes: Routes = [
   {path: 'patient/index', component: PatientIndexComponent, canActivate: [AuthPatientGuard]},
   {path: 'patient/mybloodtests', component: PatientMybloodtestsComponent, canActivate: [AuthPatientGuard]},
   {path: 'patient/mydoctors', component: PatientMydoctorsComponent, canActivate: [AuthPatientGuard]},
+  {path: 'info/doctor/:id', component: DoctorInfoComponent, canActivate: [AuthPatientGuard]},
   {path: 'doctor/index', component: DoctorIndexComponent, canActivate: [AuthDoctorGuard]},
   {path: 'doctor/appointments', component: DoctorAppointmentsComponent, canActivate: [AuthDoctorGuard]},
+  {path: 'chat', component: ChatComponent, canActivate: [AuthPatientGuard]}, /* tmp */
   {path: '**', redirectTo: 'index'}
 ];
 

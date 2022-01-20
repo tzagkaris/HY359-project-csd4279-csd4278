@@ -25,6 +25,10 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { DoctorInfoComponent } from './pages/doctor-info/doctor-info.component';
+import { SelectedDoctorAppointmentsComponent } from './general/selected-doctor-appointments/selected-doctor-appointments.component';
+import { AppointmentBlockComponent } from './general/appointment-block/appointment-block.component';
+import { ChatComponent } from './general/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,11 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     PatientMydoctorsComponent,
     PatientMybloodtestsComponent,
     DoctorIndexComponent,
-    DoctorAppointmentsComponent
+    DoctorAppointmentsComponent,
+    DoctorInfoComponent,
+    SelectedDoctorAppointmentsComponent,
+    AppointmentBlockComponent,
+    ChatComponent
   ],
   imports: [
     CommonModule,
