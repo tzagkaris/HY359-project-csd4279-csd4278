@@ -8,4 +8,5 @@ export interface NavLink {
 
   tag: string,
   redirectTo: string,
+  selected: boolean
 }

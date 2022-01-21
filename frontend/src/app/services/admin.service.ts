@@ -56,7 +56,7 @@ export class AdminService {
       })
 
       if(!element.certified)
-        finalList[finalList.length - 1].actions?.push(
+        finalList[finalList.length - 1].actions?.unshift(
           {text: "Certify", colorClass: "button-green", validFunc: true,clickFunc: () => {
 
             this._http.certifyDoc(element.amka).subscribe(res => {
@@ -70,7 +70,9 @@ export class AdminService {
           }
         }
         )
-    })
+
+    }
+    )
 
    return finalList;
   }

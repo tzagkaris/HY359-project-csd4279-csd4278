@@ -46,4 +46,9 @@ export class DoctorService {
 
     return this.http.get<Message[]>(this.host + `/${p_id}/chat`)
   }
+
+  addAppointment(app: any) {
+
+    return this.http.put(this.host + '/appointment', app);
+  }
 }

@@ -1,0 +1,25 @@
+.new-ap-cont {
+  margin: 2rem;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 4rem;
+}
+
+.form-entry {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 2rem;
+}
+

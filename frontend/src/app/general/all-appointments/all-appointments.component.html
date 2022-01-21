@@ -1,0 +1,8 @@
+<div class="app-list">
+  <h1>Your Uploaded Appointments:</h1>
+  <div class="app-list-cont">
+    <div class="appointmentEntry">
+      <app-appointment-patblock *ngFor="let p of blocks" [patApp]="p"></app-appointment-patblock>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="new-ap-cont">
+  <h1>Add a new Appointment:</h1>
+  <form class="input-container" [formGroup]="appointmentGroup" (ngSubmit)="onSubmit(buttonDiv, button)">
+
+    <div class="form-entry">
+      <label for="date">Date:</label>
+      <input formControlName="date" type="date" name="date" id="date" placeholder="Input date">
+    </div>
+
+    <div class="form-entry">
+      <label for="time">Start Time:</label>
+      <input formControlName="time" type="time" name="time" id="time" placeholder="Input time">
+    </div>
+
+    <div class="form-entry">
+      <label for="duration">Duration in minutes:</label>
+      <input formControlName="duration" type="number" name="duration" id="duration" placeholder="Input duration in minutes">
+    </div>
+
+    <div class="form-entry">
+      <label for="price">Price:</label>
+      <input formControlName="price" type="number" name="price" id="price" placeholder="Input a price in €">
+    </div>
+
+    <div class="btn button button-green" #buttonDiv>
+      <button type="submit"  #button>Post</button>
+    </div>
+  </form>
+</div>
