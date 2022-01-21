@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+<div class="appointment-info-cont divider-bottom">
+  <div class="info">
+    <h1>Appointment Info:</h1>
+    <div class="specs">
+      <h2>Date: <span class="thin-text">{{appointment.date.split('T')[0]}}</span></h2>
+      <h2>Time: <span class="thin-text">{{appointment.date.split('T')[1].substring(0, appointment.date.split('T')[1].length - 1)}}</span></h2>
+      <h2>Duration: <span class="thin-text">{{appointment.duration}} minutes</span></h2>
+      <h2>Price: <span class="thin-text">{{appointment.price}} €</span></h2>
+
+      <div class="btn-cont btn-sep">
+        <h2 class="">Mark as: </h2>
+        <div class="btn-done button" (click)="onDone()">
+          <button>Done</button>
+        </div>
+        <div class="btn-cancel button button-red" (click)="onCancel()">
+          <button>Cancelled</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="bloodtest-cont">
+  <h1>Patient's Bloodtests:</h1>
+
+  <div class="bl-options">
+    <div class="btn button" [class.button-gray] = "!isGraphSelected" (click)="selectList()">
+      <button>List</button>
+    </div>
+    <div class="btn button" [class.button-gray] = "isGraphSelected" (click)="selectGraph()">
+      <button>Graph</button>
+    </div>
+    <h3>Select Rating:</h3>
+    <div class="rating-selector">
+      <select class="sel" name="rating" id="rating" [formControl]="ratingSelector">
+        <option [selected]="'Iron'" value="iron">Iron</option>
+        <option value="blood_sugar">Blood Sugar</option>
+        <option value="vitamin_b12">Vitamin b12</option>
+        <option value="vitamin_d3">Vitamin d3</option>
+      </select>
+    </div>
+  </div>
+  <app-bloodtest-list *ngIf="!isGraphSelected" [view]="'doctor'" [selectedRating]="ratingSelector.value"></app-bloodtest-list>
+</div>
+
+<div class="add-treatment-cont divider">
+  <app-add-treatment></app-add-treatment>
+</div>
+
+<app-footer></app-footer>

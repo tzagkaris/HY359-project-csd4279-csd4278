@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Appointment } from '../interfaces/appointment';
 import { doctor } from '../interfaces/blocklist-entry';
-import { Bloodtest } from '../interfaces/bloodtest';
+import { Bloodtest, Treatment } from '../interfaces/bloodtest';
 import { Message } from '../interfaces/message';
 
 @Injectable({
@@ -50,6 +50,16 @@ export class PatientHttpService {
    getBloodtests() {
 
     return this.http.get<Bloodtest[]>(this.host + '/bloodtest');
+   }
+
+   getMyAppointments() {
+
+    return this.http.get<Appointment[]>(this.host + '/appointments');
+   }
+
+   getTreatments() {
+
+    return this.http.get<Treatment[]>(this.host + '/treatments');
    }
 
 }

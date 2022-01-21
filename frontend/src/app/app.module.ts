@@ -21,7 +21,6 @@ import { PatientMybloodtestsComponent } from './pages/patient-mybloodtests/patie
 import { DoctorIndexComponent } from './pages/doctor-index/doctor-index.component';
 import { DoctorAppointmentsComponent } from './pages/doctor-appointments/doctor-appointments.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { HttpClientModule } from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptorService } from './services/token-interceptor.service';
@@ -31,6 +30,14 @@ import { AppointmentBlockComponent } from './general/appointment-block/appointme
 import { ChatComponent } from './general/chat/chat.component';
 import { AddBloodtestComponent } from './general/add-bloodtest/add-bloodtest.component';
 import { BloodtestListComponent } from './general/bloodtest-list/bloodtest-list.component';
+import { MyAppointmentsComponent } from './general/my-appointments/my-appointments.component';
+import { MyPatientsComponent } from './general/my-patients/my-patients.component';
+import { PatientListEntryComponent } from './general/patient-list-entry/patient-list-entry.component';
+import { PatientInfoComponent } from './pages/patient-info/patient-info.component';
+import { TreatmentLatestComponent } from './general/treatment-latest/treatment-latest.component';
+import { IncAppointmentsComponent } from './general/inc-appointments/inc-appointments.component';
+import { AppointmentInfoComponent } from './pages/appointment-info/appointment-info.component';
+import { AddTreatmentComponent } from './general/add-treatment/add-treatment.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +63,15 @@ import { BloodtestListComponent } from './general/bloodtest-list/bloodtest-list.
     AppointmentBlockComponent,
     ChatComponent,
     AddBloodtestComponent,
-    BloodtestListComponent
+    BloodtestListComponent,
+    MyAppointmentsComponent,
+    MyPatientsComponent,
+    PatientListEntryComponent,
+    PatientInfoComponent,
+    TreatmentLatestComponent,
+    IncAppointmentsComponent,
+    AppointmentInfoComponent,
+    AddTreatmentComponent
   ],
   imports: [
     CommonModule,

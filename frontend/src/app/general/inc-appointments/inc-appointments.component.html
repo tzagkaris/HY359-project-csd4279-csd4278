@@ -1,0 +1,6 @@
+<div class="ap-c">
+  <h1>Your appointments with this patient:</h1>
+  <div class="aplist">
+    <app-appointment-block *ngFor="let ap of appBlocks" [app]="ap" [view]="true"></app-appointment-block>
+  </div>
+</div>

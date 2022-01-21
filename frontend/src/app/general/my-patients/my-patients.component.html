@@ -1,0 +1,6 @@
+<div class="my-pat-container">
+  <h1>Your Patients:</h1>
+  <div class="plist">
+    <app-patient-list-entry *ngFor="let p of patBlocks" [info]="p"></app-patient-list-entry>
+  </div>
+</div>

@@ -73,6 +73,11 @@ export interface patient {
   bloodtype: string,
 }
 
+export interface patBlock {
+  pat: patient,
+  actions: Actions[]
+}
+
 export interface Actions {
 
   clickFunc: () => void,

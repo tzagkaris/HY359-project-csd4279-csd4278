@@ -123,6 +123,27 @@ const patientLogic = {
 
     },
 
+    getPatientAppointments: (req, res, next) => {
+
+        let p_id = req.body.pers.id;
+        store.fetchPatientAppointments(p_id)
+        .then(r => {
+            res.status(200).send(r);            
+        })
+        .catch(er => next({status: 'error', desc: 'Internal Error', code: 500, refCode: 1}))
+
+    },
+
+    getPatientTreatments: (req, res, next) => {
+
+        let p_id = req.body.pers.id;
+        store.fetchTreatments(p_id)
+        .then(r => {
+            res.status(200).send(r);            
+        })
+        .catch(er => next({status: 'error', desc: 'Internal Error', code: 500, refCode: 1}))
+
+    },
     getAppointments: (req, res, next) => {
 
         let d_id = req.params.doctor_id;

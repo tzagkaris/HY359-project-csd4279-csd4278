@@ -8,11 +8,17 @@ export interface Appointment {
   date: string,
   duration: number,
   price: number,
-  state: number,
+  state: string,
 }
 
 export interface AppointmentBlock {
 
   ap: Appointment,
   actions: Actions[]
+}
+
+export interface StrDate {
+  year: number,
+  month: number,
+  day: number
 }

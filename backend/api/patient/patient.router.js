@@ -26,6 +26,14 @@ router.get('/doctors',
     logic.getDoctorInfoFromList
 )
 
+router.get('/appointments',
+    logic.getPatientAppointments
+)
+
+router.get('/treatments',
+    logic.getPatientTreatments
+)
+
 router.get('/:doctor_id/appointments',
     logic.getAppointments,
     logic.filterAppoinmtnetsByDate

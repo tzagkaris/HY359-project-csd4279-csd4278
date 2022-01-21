@@ -1,6 +1,7 @@
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Message } from 'src/app/interfaces/message';
+import { DoctorService } from 'src/app/services/doctor.service';
 import { PatientService } from 'src/app/services/patient.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { PatientService } from 'src/app/services/patient.service';
 })
 export class ChatComponent implements OnInit {
 
-  constructor(private ps: PatientService, private _router: Router) { }
+  constructor(private ps: PatientService, private _router: Router, private ds: DoctorService) { }
 
   @Input() recipient_id: number;
   view: string;
@@ -34,7 +35,18 @@ export class ChatComponent implements OnInit {
         this.canSend = false;
         this.sendColorClass = "button-gray"
       })
+
+      return;
     }
+
+    /* doc */
+    this.ds.getChat(this.recipient_id).subscribe(msg => {
+      this.messageArr = msg;
+    }, er => {
+      this.canSend = false;
+      this.sendColorClass = "button-gray"
+    })
+
   }
 
   sendMessage(input: HTMLInputElement) {

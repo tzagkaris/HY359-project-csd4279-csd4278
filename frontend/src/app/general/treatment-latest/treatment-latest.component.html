@@ -1,0 +1,15 @@
+<div class="treatment-container"  *ngIf="treatments.length">
+  <h1>Your Latest Treatment:</h1>
+  <div class="treatment">
+    <div class="treatement-info">
+      <h2>From: <span class="thin-text">{{latestTreatment.date_start.split('T')[0]}}</span></h2>
+      <h2>To: <span class="thin-text">{{latestTreatment.date_end.split('T')[0]}}</span></h2>
+      <h2 *ngIf="isDocLinked">By: <span class="thin-text">{{by}}</span></h2>
+    </div>
+    <div class="treatement-info">
+      <h2>Examinations: <span class="thin-text">{{latestTreatment.examinations}}</span></h2>
+      <h2>Medications: <span class="thin-text">{{latestTreatment.medications}}</span></h2>
+    </div>
+
+  </div>
+</div>

@@ -13,26 +13,25 @@ export class AppointmentBlockComponent implements OnInit {
   constructor(private ps: PatientService) { }
 
   @Input() app: AppointmentBlock;
+  @Input() view: boolean = false;
 
   ngOnInit(): void {
 
     this.app.actions.forEach(ac => {
       if(!ac.validFunc) {
-        ac.clickFunc = () => {
-          this.ps.bookAppointment(this.app.ap.doctor_id, this.app.ap._id)
-          .subscribe( res => {
-            ac.text = 'Booked'
-            ac.colorClass = 'button-gray btn-last'
-          }, er => console.log(er))
-        }
+
+        if(ac.text = "Book")
+          ac.clickFunc = () => {
+            this.ps.bookAppointment(this.app.ap.doctor_id, this.app.ap._id)
+            .subscribe( res => {
+              ac.text = 'Booked'
+              ac.colorClass = 'button-gray btn-last'
+            }, er => console.log(er))
+          }
       }
     })
-
-  }
-
-  bookAppointment() {
-
-
+    if(this.app.actions.length)
+      this.app.actions[this.app.actions.length - 1].colorClass += " btn-last"
 
   }
 
