@@ -1,1 +1,32 @@
-<p>patient-mybloodtests works!</p>
+<app-header></app-header>
+<app-nav-bar [navBundle]="navBarBundle"></app-nav-bar>
+
+<!-- add bloodtest-->
+<div class="add-bloodtest-cont divider-bottom">
+  <app-add-bloodtest></app-add-bloodtest>
+</div>
+
+<div class="bloodtest-cont">
+  <h1>Your Bloodtests:</h1>
+
+  <div class="bl-options">
+    <div class="btn button" [class.button-gray] = "!isGraphSelected" (click)="selectList()">
+      <button>List</button>
+    </div>
+    <div class="btn button" [class.button-gray] = "isGraphSelected" (click)="selectGraph()">
+      <button>Graph</button>
+    </div>
+    <h3>Select Rating:</h3>
+    <div class="rating-selector">
+      <select class="sel" name="rating" id="rating" [formControl]="ratingSelector">
+        <option [selected]="'Iron'" value="iron">Iron</option>
+        <option value="blood_sugar">Blood Sugar</option>
+        <option value="vitamin_b12">Vitamin b12</option>
+        <option value="vitamin_d3">Vitamin d3</option>
+      </select>
+    </div>
+  </div>
+  <app-bloodtest-list *ngIf="!isGraphSelected" [selectedRating]="ratingSelector.value"></app-bloodtest-list>
+</div>
+
+<app-footer></app-footer>

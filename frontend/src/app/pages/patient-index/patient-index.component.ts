@@ -16,7 +16,7 @@ export class PatientIndexComponent implements OnInit {
   navBarBundle: NavBundle = {
     tag: 'Patient Panel',
     links: [
-      {tag: 'My Bloodtests', redirectTo: '/patient/blootests'},
+      {tag: 'My Bloodtests', redirectTo: '/patient/mybloodtests'},
       {tag: 'My Doctors', redirectTo: '/patient/mydoctors'},
       {tag: 'Find Doctors', redirectTo: '/patient/index'},
     ]
@@ -25,7 +25,7 @@ export class PatientIndexComponent implements OnInit {
   selectedDoctor: doctor;
 
   onOptionClicked(ev: ButtonEmitter) {
-    
+
   }
 
   ngOnInit(): void {

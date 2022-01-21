@@ -1,0 +1,36 @@
+<div class="bloodtest-container">
+  <h1 class="">Post a new Bloodtest:</h1>
+
+    <form class="input-container" [formGroup]="bloodtestForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-entry">
+        <label for="date">Date Condacted:</label>
+        <input formControlName="date" type="date" name="date" id="date" placeholder="Input Date">
+      </div>
+
+      <div class="form-entry">
+        <label for="iron">Iron:</label>
+        <input formControlName="iron" type="number" name="iron" id="iron" placeholder="Input Iron level">
+      </div>
+
+      <div class="form-entry">
+        <label for="blood_sugar">Blood Sugar:</label>
+        <input formControlName="blood_sugar" type="number" name="blood_sugar" id="blood_sugar" placeholder="Input blood sugar level">
+      </div>
+
+      <div class="form-entry">
+        <label for="vitamin_b12">Vitamin b12:</label>
+        <input formControlName="vitamin_b12" type="number" name="vitamin_b12" id="vitamin_b12" placeholder="Input vinamin b12 level">
+      </div>
+
+      <div class="form-entry">
+        <label for="vitamin_d3">Vitamin d3:</label>
+        <input formControlName="vitamin_d3" type="number" name="vitamin_d3" id="vitamin_d3" placeholder="Input vitamin d3 level">
+      </div>
+
+      <div class="btn button button-green">
+        <button type="submit" ng-disabled='isEnabled'>Upload</button>
+      </div>
+
+    </form>
+</div>

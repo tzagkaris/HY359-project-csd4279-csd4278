@@ -32,4 +32,14 @@ export class PatientService {
 
     return this.ph.getMyDoctors();
   }
+
+  newBloodtest(bloodtest: any) {
+
+    return this.ph.addBloodtest(bloodtest);
+  }
+
+  getBloodtests() {
+
+    return this.ph.getBloodtests();
+  }
 }

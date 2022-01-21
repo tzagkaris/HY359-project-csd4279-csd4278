@@ -1,0 +1,28 @@
+table {
+  margin-top: 1rem;
+  border: none;
+  overflow-x: auto;
+}
+
+th {
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+td {
+  font-weight: 300;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(238, 238, 238);
+}
+
+.red {
+  color: rgb(230, 91, 91);
+}
+
+
