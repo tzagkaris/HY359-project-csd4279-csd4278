@@ -56,4 +56,5 @@ export class OpenServiceService {
 
     return this.openHttp.registerUser(user);
   }
+
 }

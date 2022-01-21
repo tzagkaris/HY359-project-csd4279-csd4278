@@ -1,5 +1,13 @@
-<app-header-logged></app-header-logged>
+<app-header></app-header>
 <app-nav-bar [navBundle]="navBarBundle"></app-nav-bar>
+
+<div class="ap-cont divider-bottom">
+  <app-my-appointments></app-my-appointments>
+</div>
+
+<div class="c-treatment divider-bottom">
+  <app-treatment-latest></app-treatment-latest>
+</div>
 
 <!-- index page is also the find doctors page -->
 <app-find-doctors [isPatient]="true" (buttonEvent)="onOptionClicked($event)" [topText]="'Find Doctors near you:'"></app-find-doctors>

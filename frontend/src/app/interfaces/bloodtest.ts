@@ -23,3 +23,15 @@ export interface BloodtestBlock {
   selectedRatingRating: string,
   currentSrc: string,
 }
+
+export interface Treatment {
+
+  _id: number,
+  bloodtest_id: number,
+  patient_id: number,
+  doctor_id: number,
+  date_start: string,
+  date_end: string,
+  medications: string,
+  examinations: string
+}

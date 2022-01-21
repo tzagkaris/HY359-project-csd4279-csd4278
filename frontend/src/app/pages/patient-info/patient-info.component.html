@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<!-- Patient info display-->
+<div class="info-container divider-bottom">
+  <div class="nameContainer">
+    <h1>{{patient.firstname + " " + patient.lastname}}</h1>
+  </div>
+  <div class="info-display">
+    <h3>Born in: <span class="thin-text">{{patient.birthdate.split('T')[0]}}</span></h3>
+    <h3>Weight: <span class="thin-text">{{patient.weight}}</span></h3>
+    <h3>Height: <span class="thin-text">{{patient.height}}</span></h3>
+    <h3>Phone: <span class="thin-text">+30 {{patient.telephone}}</span></h3>
+  </div>
+</div>
+
+<div class="inc-ap divider-bottom">
+  <app-inc-appointments [filter_id]="patient._id"></app-inc-appointments>
+</div>
+
+<div class="wrap divider-bottom">
+  <div class="bloodtest-cont">
+    <h1>Patient's Bloodtests:</h1>
+
+    <div class="bl-options">
+      <div class="btn button" [class.button-gray] = "!isGraphSelected" (click)="selectList()">
+        <button>List</button>
+      </div>
+      <div class="btn button" [class.button-gray] = "isGraphSelected" (click)="selectGraph()">
+        <button>Graph</button>
+      </div>
+      <h3>Select Rating:</h3>
+      <div class="rating-selector">
+        <select class="sel" name="rating" id="rating" [formControl]="ratingSelector">
+          <option [selected]="'Iron'" value="iron">Iron</option>
+          <option value="blood_sugar">Blood Sugar</option>
+          <option value="vitamin_b12">Vitamin b12</option>
+          <option value="vitamin_d3">Vitamin d3</option>
+        </select>
+      </div>
+    </div>
+    <app-bloodtest-list *ngIf="!isGraphSelected" [view]="'doctor'" [selectedRating]="ratingSelector.value"></app-bloodtest-list>
+  </div>
+</div>
+
+
+<app-chat [recipient_id]="patient._id"></app-chat>
+
+<app-footer></app-footer>

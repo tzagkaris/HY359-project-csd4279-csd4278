@@ -1,0 +1,30 @@
+<div class="add-treatment-cont">
+  <h1>Add a Treatment:</h1>
+  <form class="input-container" [formGroup]="treatmentGroup" (ngSubmit)="onSubmit(buttonDiv, button)">
+
+    <div class="form-entry">
+      <label for="date_start">Start Date:</label>
+      <input formControlName="date_start" type="date" name="date_start" id="date_start" placeholder="Input date">
+    </div>
+
+    <div class="form-entry">
+      <label for="date_end">End Date:</label>
+      <input formControlName="date_end" type="date" name="date_end" id="date_end" placeholder="Input date">
+    </div>
+
+    <div class="form-entry">
+      <label for="medications">Medications:</label>
+      <input formControlName="medications" type="text" name="medications" id="medications" placeholder="Input medications seperated by '|' comma">
+    </div>
+
+    <div class="form-entry">
+      <label for="examinations">Examinations:</label>
+      <input formControlName="examinations" type="text" name="examinations" id="examinations" placeholder="Input examinations seperated by comma">
+    </div>
+
+    <div class="btn button button-green" #buttonDiv>
+      <button type="submit" g-disabled="isEnabled"  #button>Post</button>
+    </div>
+
+  </form>
+</div>

@@ -57,11 +57,41 @@ const patientStore = {
         })
     },
 
+    fetchDoctorAppointmentsFromList: (list, p_id) => {
+
+        return new Promise((resolve, reject) => {
+
+            db('appointment').whereIn('doctor_id', list).where('patient_id', p_id)
+            .then(r => resolve(r))
+            .catch(er => reject(er))
+        })
+    },
+
+    fetchPatientAppointments: (p_id) => {
+
+        return new Promise((resolve, reject) => {
+
+            db('appointment').where({'patient_id': p_id})
+            .then(r => resolve(r))
+            .catch(er => reject(er))
+        })
+    },
+
     fetchSpecificAppointment: (d_id, ap_id) => {
 
         return new Promise((resolve, reject) => {
 
             db('appointment').where({doctor_id: d_id, _id: ap_id})
+            .then(r => resolve(r))
+            .catch(er => reject(er))
+        })
+    },
+
+    fetchTreatments: (p_id) => {
+
+        return new Promise((resolve, reject) => {   
+
+            db('treatment').where({patient_id: p_id})
             .then(r => resolve(r))
             .catch(er => reject(er))
         })

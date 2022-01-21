@@ -1,13 +1,10 @@
 import { ThrowStmt } from '@angular/compiler';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { StrDate } from 'src/app/interfaces/appointment';
 import { Bloodtest, BloodtestBlock } from 'src/app/interfaces/bloodtest';
+import { DoctorService } from 'src/app/services/doctor.service';
 import { PatientService } from 'src/app/services/patient.service';
-
-interface StrDate {
-  year: number,
-  month: number,
-  day: number
-}
+import { StatefulNavigationService } from 'src/app/services/stateful-navigation.service';
 
 @Component({
   selector: 'app-bloodtest-list',
@@ -16,7 +13,7 @@ interface StrDate {
 })
 export class BloodtestListComponent implements OnInit, OnChanges {
 
-  constructor(private ps: PatientService) { }
+  constructor(private ps: PatientService, private ds: DoctorService, private sn: StatefulNavigationService) { }
 
   @Input() view: string = 'patient';
   bloodTests: Bloodtest[] = []
@@ -31,8 +28,12 @@ export class BloodtestListComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
 
-    if(this.view == 'patient')
+    if(this.view == 'patient') {
       this.initPatient();
+      return;
+    }
+
+    this.initDoctor();
 
   }
 
@@ -49,6 +50,16 @@ export class BloodtestListComponent implements OnInit, OnChanges {
       this.bloodTests = res;
       this.createBlockList();
       this.updateRatings();
+    })
+  }
+
+  initDoctor() {
+    let pat = this.sn.getSavedPat()
+    this.ds.getBloodtests(pat._id).subscribe(r => {
+      this.bloodTests = r;
+      this.createBlockList();
+      this.updateRatings();
+      this.saveLatest();
     })
   }
 
@@ -129,5 +140,16 @@ export class BloodtestListComponent implements OnInit, OnChanges {
     if(d1.year == d2.year && d1.month == d2.month && d1.day < d2.day) return 0;
 
     return 1;
+  }
+
+  saveLatest() {
+
+    let lastBloodtest = this.bloodTests.sort((a, b) => {
+      if(a._id > b._id) return -1;
+
+      return 1;
+    })[0]
+
+    this.sn.setLastBloodtest(lastBloodtest);
   }
 }

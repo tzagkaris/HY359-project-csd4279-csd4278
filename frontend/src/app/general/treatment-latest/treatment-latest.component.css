@@ -1,0 +1,18 @@
+.treatment-container {
+  margin: 2rem;
+}
+
+.treatment {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.treatement-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  align-items: center;
+  gap: 3rem;
+}

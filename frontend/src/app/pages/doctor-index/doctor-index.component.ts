@@ -12,7 +12,10 @@ export class DoctorIndexComponent implements OnInit {
 
   navBarBundle: NavBundle = {
     tag: 'Doctor\'s Panel',
-    links: []
+    links: [
+      {tag: 'My Appointments', redirectTo: '/doctor/appointments'},
+      {tag: 'My Patients', redirectTo: '/doctor/index'},
+    ]
   }
 
   ngOnInit(): void {

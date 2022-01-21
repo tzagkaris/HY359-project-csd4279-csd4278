@@ -42,4 +42,9 @@ export class PatientService {
 
     return this.ph.getBloodtests();
   }
+
+  getMyAppointments() {
+
+    return this.ph.getMyAppointments();
+  }
 }
