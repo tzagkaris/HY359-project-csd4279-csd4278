@@ -41,7 +41,6 @@ export class BloodtestListComponent implements OnInit, OnChanges {
     if(changes.selectedRating.firstChange) return;
     this.selectedRating = changes.selectedRating.currentValue;
     this.updateRatings();
-    console.log(this.bloodTestBlocks)
   }
 
   initPatient() {

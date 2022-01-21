@@ -1,4 +1,5 @@
 import { StringMap } from "@angular/compiler/src/compiler_facade_interface";
+import { Appointment } from "./appointment";
 
 export interface BlocklistEntry_doctor {
 
@@ -75,6 +76,12 @@ export interface patient {
 
 export interface patBlock {
   pat: patient,
+  actions: Actions[]
+}
+
+export interface patAppBlock {
+  pat: patient,
+  app: Appointment,
   actions: Actions[]
 }
 

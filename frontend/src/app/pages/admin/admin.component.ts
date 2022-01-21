@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
   navBarBundle: NavBundle = {
     tag: "Admin Panel",
     links: [
-      {tag: "Dashboard", redirectTo: "/admin"}
+      {tag: "Dashboard", redirectTo: "/admin", selected: true}
     ]
   }
 

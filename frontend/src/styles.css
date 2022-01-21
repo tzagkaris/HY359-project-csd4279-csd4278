@@ -83,6 +83,10 @@ h1, h2, h3, h4 {
   font-weight: 300;
 }
 
+.selected {
+  text-decoration: underline;
+}
+
 /* MISC */
 .border-prim {
   border-radius: 5px 5px 5px 5px;

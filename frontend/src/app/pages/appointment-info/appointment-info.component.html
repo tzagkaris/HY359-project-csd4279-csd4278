@@ -9,6 +9,16 @@
       <h2>Duration: <span class="thin-text">{{appointment.duration}} minutes</span></h2>
       <h2>Price: <span class="thin-text">{{appointment.price}} €</span></h2>
 
+    </div>
+    <h1>Patient Info:</h1>
+    <div class="specs">
+      <h2>Full name: <span class="thin-text">{{patient.lastname + ", " + patient.firstname}}</span></h2>
+      <h2>Amka: <span class="thin-text">{{patient.amka}}</span></h2>
+      <h2>Gender: <span class="thin-text">{{patient.gender}}</span></h2>
+      <h2>Birthdate: <span class="thin-text">{{patient.birthdate.split('T')[0]}}</span></h2>
+      <h2>Height: <span class="thin-text">{{patient.height}} cm</span></h2>
+      <h2>Weight: <span class="thin-text">{{patient.weight}} kg</span></h2>
+
       <div class="btn-cont btn-sep">
         <h2 class="">Mark as: </h2>
         <div class="btn-done button" (click)="onDone()">
@@ -18,7 +28,6 @@
           <button>Cancelled</button>
         </div>
       </div>
-
     </div>
   </div>
 </div>

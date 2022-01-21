@@ -196,8 +196,33 @@ const patientLogic = {
         let p_id = req.body.pers.id;
 
         store.updateAppointmentStateToBooked(ap_id, p_id)
-        .then(r => res.status(200).send({status: 'ok'}))
+        .then(r => {
+            // add patient to doctor patients
+            res.status(200).send({status: 'ok'})
+            patientLogic.addToDoctorPatients(req);
+        })
         .catch(er => next({status: 'error', desc: 'Internal Error', code: 500, refCode: 3}))
+    },
+ 
+    addToDoctorPatients: (req) => {
+        try{
+            let ap_id = req.params.appointment_id;
+            let p_id = req.body.pers.id;
+            
+            // get appointment doctor_id
+            store.getAppointmentDoctor(ap_id)
+            .then(r => {
+                let d_id = r[0].doctor_id;
+
+                store.addPatientDoctor(d_id, p_id)
+                .then(r => {})
+                .catch(er => console.log(er))
+            })
+            .catch(er => console.log(er))
+
+        }catch(er) {
+            console.log(er)
+        }
     },
 
     isDoctorPatient: (req, res, next) => {

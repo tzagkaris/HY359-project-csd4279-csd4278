@@ -1,0 +1,23 @@
+.appointment-entry {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.ap-text {
+  margin-right: auto;
+  margin-left: 1rem;
+}
+
+.btn-last {
+  margin-right: 2rem;
+}
+
+.mlt {
+  margin-left: 1rem;
+}

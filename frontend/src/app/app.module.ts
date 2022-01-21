@@ -38,6 +38,9 @@ import { TreatmentLatestComponent } from './general/treatment-latest/treatment-l
 import { IncAppointmentsComponent } from './general/inc-appointments/inc-appointments.component';
 import { AppointmentInfoComponent } from './pages/appointment-info/appointment-info.component';
 import { AddTreatmentComponent } from './general/add-treatment/add-treatment.component';
+import { NewAppointmentComponent } from './general/new-appointment/new-appointment.component';
+import { AllAppointmentsComponent } from './general/all-appointments/all-appointments.component';
+import { AppointmentPatblockComponent } from './general/appointment-patblock/appointment-patblock.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,10 @@ import { AddTreatmentComponent } from './general/add-treatment/add-treatment.com
     TreatmentLatestComponent,
     IncAppointmentsComponent,
     AppointmentInfoComponent,
-    AddTreatmentComponent
+    AddTreatmentComponent,
+    NewAppointmentComponent,
+    AllAppointmentsComponent,
+    AppointmentPatblockComponent
   ],
   imports: [
     CommonModule,

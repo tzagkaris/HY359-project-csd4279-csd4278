@@ -200,6 +200,28 @@ const patientStore = {
             .then(r => resolve(r))
             .catch(er => reject(er))    
         })
+    },
+
+    getAppointmentDoctor: (ap_id) => {
+
+        return new Promise((resolve, reject) => {
+
+            db('appointment').where({_id: ap_id})
+            .select('doctor_id')
+            .then(r => resolve(r))
+            .catch(er => reject(er))
+        })
+    },
+
+    addPatientDoctor: (d_id, p_id) => {
+
+        return new Promise((resolve, reject) => {
+
+            db('isPatient')
+            .insert({doctor_id: d_id, patient_id: p_id})
+            .then(r => resolve(r))
+            .catch(er => reject(er))
+        })
     }
 }
 

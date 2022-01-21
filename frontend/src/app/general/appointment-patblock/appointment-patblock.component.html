@@ -1,0 +1,7 @@
+<div class="appointment-entry border-prim shadow-prim">
+  <h2 class="ap-text">- {{patApp.app.duration}} <span class="thin-text">minute appointment on</span> {{patApp.app.date.split('T')[0] }}, <span class="thin-text">Start Time:</span> {{patApp.app.date.split('T')[1].substring(0,patApp.app.date.split('T')[1].length - 4)}}, <span class="thin-text">Price:</span> {{patApp.app.price}} € <span class="thin-text mlt">{{patApp.app.state.toUpperCase()}}</span></h2>
+
+  <div class="btn button" (click)="ac.clickFunc()" [ngClass]="ac.colorClass" *ngFor="let ac of patApp.actions">
+    <button>{{ac.text}}</button>
+  </div>
+</div>

@@ -16,9 +16,9 @@ export class PatientIndexComponent implements OnInit {
   navBarBundle: NavBundle = {
     tag: 'Patient Panel',
     links: [
-      {tag: 'My Bloodtests', redirectTo: '/patient/mybloodtests'},
-      {tag: 'My Doctors', redirectTo: '/patient/mydoctors'},
-      {tag: 'Find Doctors', redirectTo: '/patient/index'},
+      {tag: 'My Bloodtests', redirectTo: '/patient/mybloodtests', selected: false},
+      {tag: 'My Doctors', redirectTo: '/patient/mydoctors', selected: false},
+      {tag: 'Find Doctors', redirectTo: '/patient/index', selected: true},
     ]
   }
 

@@ -101,7 +101,7 @@ const doctorLogic = {
             
             /* add the patient on the doctor's patient list */
             try {
-            if(newState == "done") doctorLogic.registerPatientOnDoctor(ap_id, d_id);
+            //if(newState == "done") doctorLogic.registerPatientOnDoctor(ap_id, d_id);
             return;
             }
             catch(er) {}

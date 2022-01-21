@@ -13,8 +13,8 @@ export class DoctorIndexComponent implements OnInit {
   navBarBundle: NavBundle = {
     tag: 'Doctor\'s Panel',
     links: [
-      {tag: 'My Appointments', redirectTo: '/doctor/appointments'},
-      {tag: 'My Patients', redirectTo: '/doctor/index'},
+      {tag: 'My Appointments', redirectTo: '/doctor/appointments', selected: false},
+      {tag: 'My Patients', redirectTo: '/doctor/index', selected: true},
     ]
   }
 
