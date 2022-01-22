@@ -53,6 +53,7 @@
     </div>
   </div>
   <app-bloodtest-list *ngIf="!isGraphSelected" [view]="'doctor'" [selectedRating]="ratingSelector.value"></app-bloodtest-list>
+  <app-graph-bloodtests *ngIf="isGraphSelected" [view]="'doctor'" [selectedRating]="ratingSelector.value"></app-graph-bloodtests>
 </div>
 
 <div class="add-treatment-cont divider">

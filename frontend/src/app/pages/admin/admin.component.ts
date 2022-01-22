@@ -38,13 +38,11 @@ export class AdminComponent implements OnInit {
     }, er => {
 
       /* could add a cool notification */
-      console.log(er);
     })
   }
 
 
   buttonClicked = (ev: ButtonEmitter) => {
-    console.log(ev)
   }
 
 }

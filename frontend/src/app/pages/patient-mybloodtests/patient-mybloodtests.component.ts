@@ -24,7 +24,6 @@ export class PatientMybloodtestsComponent implements OnInit {
   ratingSelector = new FormControl('Iron');
 
   ngOnInit(): void {
-
   }
 
   selectGraph() {

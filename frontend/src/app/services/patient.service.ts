@@ -47,4 +47,19 @@ export class PatientService {
 
     return this.ph.getMyAppointments();
   }
+
+  getMyInfo() {
+
+    return this.ph.getMyInfo();
+  }
+
+  getNewMessageDocIds() {
+
+    return this.ph.getNewMessageDocIds();
+   }
+
+   readMessages(d_id:number) {
+
+    return this.ph.readMessages(d_id);
+   }
 }

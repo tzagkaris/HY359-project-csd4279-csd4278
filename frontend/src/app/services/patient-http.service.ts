@@ -2,9 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Appointment } from '../interfaces/appointment';
-import { doctor } from '../interfaces/blocklist-entry';
+import { doctor, patient } from '../interfaces/blocklist-entry';
 import { Bloodtest, Treatment } from '../interfaces/bloodtest';
 import { Message } from '../interfaces/message';
+
+export interface doc_id {
+  doctor_id: number
+}
 
 @Injectable({
   providedIn: 'root'
@@ -60,6 +64,21 @@ export class PatientHttpService {
    getTreatments() {
 
     return this.http.get<Treatment[]>(this.host + '/treatments');
+   }
+
+   getMyInfo() {
+
+    return this.http.get<patient>(this.host +'/info');
+   }
+
+   getNewMessageDocIds() {
+
+    return this.http.get<doc_id[]>(this.host + '/chat/new');
+   }
+
+   readMessages(d_id:number) {
+
+    return this.http.post(this.host + `/${d_id}/chat`, {});
    }
 
 }

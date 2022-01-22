@@ -19,7 +19,7 @@ export class MyAppointmentsComponent implements OnInit {
     this.ps.getMyAppointments().subscribe(r => {
       this.aps = r;
       this.generateApBlocks();
-    },er => console.log(er))
+    },er => {/* console.log(er) */})
   }
 
   generateApBlocks() {

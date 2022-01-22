@@ -27,6 +27,7 @@
     </div>
   </div>
   <app-bloodtest-list *ngIf="!isGraphSelected" [selectedRating]="ratingSelector.value"></app-bloodtest-list>
+  <app-graph-bloodtests *ngIf="isGraphSelected" [selectedRating]="ratingSelector.value"></app-graph-bloodtests>
 </div>
 
 <app-footer></app-footer>

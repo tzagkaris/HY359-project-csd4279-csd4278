@@ -6,6 +6,11 @@ import { patient } from '../interfaces/blocklist-entry';
 import { Bloodtest } from '../interfaces/bloodtest';
 import { Message } from '../interfaces/message';
 
+interface p_id {
+  patient_id: number
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -50,5 +55,20 @@ export class DoctorService {
   addAppointment(app: any) {
 
     return this.http.put(this.host + '/appointment', app);
+  }
+
+  postMessage(msg: any) {
+
+    return this.http.put(this.host + `/${msg.patient_id}/chat`, msg);
+  }
+
+  getNewMessagePIds() {
+
+    return this.http.get<p_id[]>(this.host + '/chat/new');
+  }
+
+  readMessages(p_id: number) {
+
+    return this.http.post(this.host + `/${p_id}/chat`, {});
   }
 }

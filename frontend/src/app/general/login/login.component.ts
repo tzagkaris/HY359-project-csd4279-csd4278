@@ -61,7 +61,7 @@ export class LoginComponent implements AfterContentInit {
     er => {
       /* add some kind of feedback if there exists time -- will do later */
       /* console.log(er.error.error) */
-      console.log("Invalid Credentials")
+      /* console.log("Invalid Credentials") */
     })
 
   }

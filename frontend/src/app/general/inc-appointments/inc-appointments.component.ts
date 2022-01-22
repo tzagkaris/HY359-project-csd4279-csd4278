@@ -26,7 +26,7 @@ export class IncAppointmentsComponent implements OnInit {
       }
 
       this.generateAppBlocks()
-    }, er=> console.log(er))
+    }, er=> {/* console.log(er) */})
   }
 
   generateAppBlocks() {
@@ -51,7 +51,7 @@ export class IncAppointmentsComponent implements OnInit {
             this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
               this.router.navigate([url]);
             })
-          }, er => console.log(er))
+          }, er => {/* console.log(er) */})
         }, validFunc: true}
       )
     })
