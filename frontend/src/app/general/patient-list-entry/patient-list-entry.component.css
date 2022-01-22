@@ -38,3 +38,26 @@
   padding-bottom: 0;
   padding-left: 3rem;
 }
+
+/* .abs-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+} */
+
+.name-cont {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.cert {
+  position: absolute;
+  top: 4%;
+  right: 2%;
+}

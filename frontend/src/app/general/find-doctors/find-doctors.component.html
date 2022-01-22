@@ -5,9 +5,35 @@
     <app-blocklist-doctor-entry *ngFor="let ent of entries" [info]="ent" (buttonOutput)="buttonClicked($event)"></app-blocklist-doctor-entry>
 
   </div>
-  <div class="pinned-map-container">
+  <div class="pinned-map-container" *ngIf="isMapClicked">
     <!-- Will be implemented later -->
-  </div>
+    <google-map class="border-prim shadow-prim" *ngIf="isMapClicked"
+    [center]="center"
+    [width]="1200"
+    [height]="400"
+
+    >
+    <!-- Doctor marker -->
+    <map-marker
+    [position]="center"
+    [title] ="title"
+    >
+    </map-marker>
+
+    <!-- Patient marker -->
+    <map-marker *ngIf="isPatient"
+    [position]="patMarker"
+    [title] ="titlePat"
+    >
+
+    </map-marker>
+  </google-map>
+</div>
+<div class="d-container" *ngIf="isMapClicked">
+  <h2>Distance: <span class="thin-text">{{distance}}</span></h2>
+  <h2>Travel duration: <span class="thin-text">{{duration}}</span></h2>
+</div>
+
   <div class="filter-options-container" *ngIf="isPatient">
     <!-- Will be implemented later-->
   </div>

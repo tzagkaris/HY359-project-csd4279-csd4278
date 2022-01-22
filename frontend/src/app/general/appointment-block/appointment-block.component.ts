@@ -26,7 +26,7 @@ export class AppointmentBlockComponent implements OnInit {
             .subscribe( res => {
               ac.text = 'Booked'
               ac.colorClass = 'button-gray btn-last'
-            }, er => console.log(er))
+            }, er => {/* console.log(er) */})
           }
       }
     })

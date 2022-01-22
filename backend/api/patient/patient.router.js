@@ -63,6 +63,10 @@ router.post('/:doctor_id/chat',
     logic.markAllRead
 )
 
+router.get('/info',
+    logic.getMyInfo
+)
+
 
 router.use(error.onError)
 

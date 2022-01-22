@@ -45,7 +45,6 @@ export class NewAppointmentComponent implements OnInit {
         buttonDiv.classList.add('button-green')
       }, 5000)
     },er => {
-      console.log(er)
       button.innerText = "Error"
       buttonDiv.classList.remove('button-green')
       buttonDiv.classList.add('button-red')

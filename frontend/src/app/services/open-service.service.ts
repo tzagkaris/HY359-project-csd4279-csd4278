@@ -22,6 +22,7 @@ export class OpenServiceService {
         {
         original_index: index,
         isCertified: 1,
+        hasMessages: false, /* come here */
         name: element.lastname + ' ' + element.firstname,
         location: `${element.address}, ${element.city}, ${element.country}`,
         number: `+30 ${element.telephone}`,

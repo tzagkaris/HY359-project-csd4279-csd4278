@@ -37,7 +37,7 @@ export class SelectedDoctorAppointmentsComponent implements OnInit, OnDestroy {
 
         this.generateApBlocks();
       },
-      er => console.log(er))
+      er => {/* console.log(er) */})
   }
 
   generateApBlocks() {

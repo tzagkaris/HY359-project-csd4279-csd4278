@@ -58,10 +58,9 @@ export class RegisterComponent implements OnInit {
 
     this.openService.registerUser(to_send)
     .subscribe(res => {
-      console.log(res);
       this._router.navigateByUrl('/index');
     },
-    er => console.log(er)
+    er => {/* console.log(er) */}
     )
   }
 }

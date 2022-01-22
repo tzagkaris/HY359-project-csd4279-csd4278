@@ -30,5 +30,7 @@ export class PatientMydoctorsComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedDoctor = this._sn.getSavedDoc()
+
+
   }
 }

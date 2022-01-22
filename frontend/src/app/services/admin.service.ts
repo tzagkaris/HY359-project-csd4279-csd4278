@@ -33,6 +33,7 @@ export class AdminService {
       finalList.push(
         {
         original_index: index,
+        hasMessages: false, /* come here */
         isCertified: element.certified,
         name: element.lastname + ' ' + element.firstname,
         location: `${element.address}, ${element.city}, ${element.country}`,
@@ -49,7 +50,6 @@ export class AdminService {
             }, er => {
 
               /* might do something fancy later */
-              console.log(er)
             })
           } },
         ]
@@ -65,7 +65,6 @@ export class AdminService {
             }, er => {
 
               /* might do something fancy later */
-              console.log(er)
             })
           }
         }
@@ -99,7 +98,6 @@ export class AdminService {
             }, er => {
 
               /* might do something fancy later */
-              console.log(er)
             })
           } },
         ]

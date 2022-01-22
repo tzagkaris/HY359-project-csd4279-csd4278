@@ -5,6 +5,7 @@ import { Appointment } from 'src/app/interfaces/appointment';
 import { patAppBlock, patient } from 'src/app/interfaces/blocklist-entry';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { StatefulNavigationService } from 'src/app/services/stateful-navigation.service';
+import { jsPDF } from 'jspdf'
 
 @Component({
   selector: 'app-all-appointments',
@@ -28,9 +29,9 @@ export class AllAppointmentsComponent implements OnInit {
         this.patients = p;
 
         this.createBlocklists()
-      }, er => console.log(er))
+      }, er => {/* console.log(er) */})
 
-    }, er => console.log(er))
+    }, er => {/* console.log(er) */})
 
 
   }
@@ -81,5 +82,24 @@ export class AllAppointmentsComponent implements OnInit {
       if(a.app._id > b.app._id) return -1;
       return 1;
     })
+  }
+
+  saveToPdf() {
+    let doc = new jsPDF();
+
+    doc.setFontSize(30)
+    doc.text("Your Appointments so far:", 10, 15);
+
+    doc.setFontSize(12)
+    let startHeight = 30;
+
+    this.blocks.forEach(b => {
+
+      doc.text(`Appointment on ${b.app.date.split('T')[0]} at ${b.app.date.split('T')[1].substring(0, b.app.date.split('T')[1].length - 1)} for ${b.app.duration} minutes. Paying: ${b.app.price} €`, 10 ,startHeight)
+      startHeight +=10;
+      doc.text(`State: ${b.app.state}`, 12 ,startHeight)
+      startHeight +=10;
+    })
+    doc.save("appointments.pdf");
   }
 }

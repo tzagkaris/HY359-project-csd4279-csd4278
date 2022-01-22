@@ -24,6 +24,21 @@ export class FindDoctorsComponent implements OnInit {
 
   entries: BlocklistEntry_doctor[] = []
   docs: doctor[] = [];
+  isMapClicked: boolean = false;
+  center = {
+    lat: 35.33728205677397,
+    lng: 25.137104655260956
+  }
+  patMarker = {
+    lat:35.33728205677397,
+    lng:25.137104655260956
+  }
+
+  distance: string = "0"
+  duration: string = "0"
+
+  title= "Medical Office"
+  titlePat= "Your place"
 
   ngOnInit(): void {
 
@@ -32,6 +47,16 @@ export class FindDoctorsComponent implements OnInit {
         this.docs = d;
 
         this.entries = this.openService.docs_toBlocklist_patient(d)
+
+        this._ps.getNewMessageDocIds().subscribe(r => {
+
+          this.entries.forEach(e => {
+
+            let hasMsges = !!((r.filter(a => a.doctor_id == e.id)).length);
+            e.hasMessages = hasMsges;
+          })
+        })
+
       })
     }
     else
@@ -40,14 +65,87 @@ export class FindDoctorsComponent implements OnInit {
         this.docs = docs;
 
         if(!this.isPatient) this.entries = this.openService.docs_toBlocklist_index(docs)
-        else this.entries = this.openService.docs_toBlocklist_patient(docs)
+        else {
+          this.entries = this.openService.docs_toBlocklist_patient(docs)
 
+          this._ps.getNewMessageDocIds().subscribe(r => {
+
+            this.entries.forEach(e => {
+
+              let hasMsges = !!((r.filter(a => a.doctor_id == e.id)).length);
+              e.hasMessages = hasMsges;
+            })
+          })
+
+
+        }
       })
   }
 
   buttonClicked = (ev: ButtonEmitter) => {
     /* if button clicked was "More" */
     if(ev.desc == "More") this.handleMoreButtonClick(ev);
+    if(ev.desc == 'Map') this.handleMapButton(ev);
+  }
+
+  handleMapButton(ev: ButtonEmitter) {
+    let clickedDoc = this.docs.filter(d => d._id == ev.id)[0];
+    this._sn.setSelectedDoctor(clickedDoc)
+
+    this.center = {
+      lat: clickedDoc.lat,
+      lng: clickedDoc.lon
+    }
+
+
+    /* if patient is logged in, show distance also */
+    if(this.isPatient) {
+      this._ps.getMyInfo()
+      .subscribe(r => {
+        this._sn.setSelectedPatient(r)
+        this.patMarker = {
+          lat: r.lat,
+          lng: r.lon
+        }
+        this.calcDistance()
+        this.isMapClicked = true;
+      })
+
+      return;
+    }
+
+    this.isMapClicked = true;
+  }
+
+  calcDistance() {
+    let clickedDoc = this._sn.getSavedDoc()
+    let pat = this._sn.getSavedPat()
+
+    let dpos = new google.maps.LatLng(clickedDoc.lat, clickedDoc.lon);
+    let ppos = new google.maps.LatLng(pat.lat, pat.lon);
+
+    let service = new google.maps.DistanceMatrixService()
+
+    service.getDistanceMatrix({
+      origins: [ppos],
+      destinations: [dpos],
+      travelMode: google.maps.TravelMode.DRIVING,
+    }).then(r => {
+      this.distance = r.rows[0].elements[0].distance.text;
+      this.duration = r.rows[0].elements[0].duration.text;
+    })
+/*     service.getDistanceMatrix(
+      {
+        origins: [origin1, origin2],
+        destinations: [destinationA, destinationB],
+        travelMode: 'DRIVING',
+        transitOptions: TransitOptions,
+        drivingOptions: DrivingOptions,
+        unitSystem: UnitSystem,
+        avoidHighways: Boolean,
+        avoidTolls: Boolean,
+      }, callback); */
+
   }
 
   handleMoreButtonClick = (ev: ButtonEmitter) => {

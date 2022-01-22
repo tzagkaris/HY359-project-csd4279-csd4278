@@ -41,6 +41,9 @@ import { AddTreatmentComponent } from './general/add-treatment/add-treatment.com
 import { NewAppointmentComponent } from './general/new-appointment/new-appointment.component';
 import { AllAppointmentsComponent } from './general/all-appointments/all-appointments.component';
 import { AppointmentPatblockComponent } from './general/appointment-patblock/appointment-patblock.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { GraphBloodtestsComponent } from './general/graph-bloodtests/graph-bloodtests.component'
+import {GoogleMapsModule } from '@angular/google-maps'
 
 @NgModule({
   declarations: [
@@ -77,14 +80,17 @@ import { AppointmentPatblockComponent } from './general/appointment-patblock/app
     AddTreatmentComponent,
     NewAppointmentComponent,
     AllAppointmentsComponent,
-    AppointmentPatblockComponent
+    AppointmentPatblockComponent,
+    GraphBloodtestsComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    GoogleChartsModule,
+    GoogleMapsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true

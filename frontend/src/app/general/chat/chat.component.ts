@@ -51,10 +51,12 @@ export class ChatComponent implements OnInit {
 
   sendMessage(input: HTMLInputElement) {
 
+
     let content = input.value;
     if(!content.length) return;
 
     if(!this.canSend) return;
+
 
     /* implemented patient side for now */
     if(this.view == 'patient') {
@@ -70,10 +72,22 @@ export class ChatComponent implements OnInit {
         let current_route = this._router.url;
         this._router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
         this._router.navigate([current_route]));
-      }, er => console.log(er))
+      }, er => {/* console.log(er) */})
       return
     }
 
+    let msg = {
+      content: content,
+      from: this.view,
+      patient_id: this.recipient_id,
+      date: new Date().toJSON(),
+    }
+
+    this.ds.postMessage(msg).subscribe(res => {
+      let current_route = this._router.url;
+      this._router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+      this._router.navigate([current_route]));
+    }, er => {/* console.log(er) */})
 
   }
 

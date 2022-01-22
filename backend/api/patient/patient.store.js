@@ -187,6 +187,7 @@ const patientStore = {
         return new Promise((resolve, reject) => {
 
             db('message').where({patient_id: p_id, isReadPat: 0})
+            .select('doctor_id')
             .then(r => resolve(r))
             .catch(er => reject(er))    
         } )
@@ -222,7 +223,17 @@ const patientStore = {
             .then(r => resolve(r))
             .catch(er => reject(er))
         })
-    }
+    },
+
+    getMyInfo: (p_id) => {
+
+        return new Promise((resolve, reject) => {
+
+            db('patient').where({_id: p_id})
+            .then(r => resolve(r))
+            .catch(er => reject(er))
+        })
+    } 
 }
 
 module.exports = { patientStore }

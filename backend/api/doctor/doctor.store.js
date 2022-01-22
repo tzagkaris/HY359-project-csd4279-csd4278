@@ -141,6 +141,7 @@ const doctorStore = {
         return new Promise((resolve, reject) => {
 
             db('message').where({doctor_id: d_id, isRead: 0})
+            .select('patient_id')
             .then(r => resolve(r))
             .catch(er => reject(er))    
         } )

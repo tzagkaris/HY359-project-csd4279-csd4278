@@ -2,6 +2,7 @@ import { AfterContentInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { doctor } from 'src/app/interfaces/blocklist-entry';
+import { PatientService } from 'src/app/services/patient.service';
 import { StatefulNavigationService } from 'src/app/services/stateful-navigation.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { StatefulNavigationService } from 'src/app/services/stateful-navigation.
 })
 export class DoctorInfoComponent implements OnInit, OnDestroy {
 
-  constructor(private _sn: StatefulNavigationService, private acRoute: ActivatedRoute) { }
+  constructor(private _sn: StatefulNavigationService, private acRoute: ActivatedRoute, private ps: PatientService) { }
 
   doctor: doctor = {
     _id: 0,
@@ -42,6 +43,7 @@ export class DoctorInfoComponent implements OnInit, OnDestroy {
     if(this._sn.checkIfSaved())
       this.doctor = this._sn.getSavedDoc()
 
+    this.ps.readMessages(this.doctor._id).subscribe(r => {}, er => {/* console.log(er) */})
   }
 
   ngOnDestroy(): void {

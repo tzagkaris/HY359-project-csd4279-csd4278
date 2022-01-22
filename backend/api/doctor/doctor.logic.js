@@ -257,9 +257,7 @@ const doctorLogic = {
 
         store.getAllUnreadDoc(d_id)
         .then(r => {
-            if(r.length) res.status(200).send({status: 'ok', new: 1})
-            else res.status(200).send({status: 'ok', new: 0})
-
+            res.status(200).send(r)
         })
         .catch(er => next({status: 'error', desc: 'Internal Error', code: 500, refCode: 1}))
     },

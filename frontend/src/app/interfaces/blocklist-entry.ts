@@ -13,6 +13,8 @@ export interface BlocklistEntry_doctor {
 
   original_index: number,
 
+  hasMessages: boolean,
+
   actions?: Actions[]
 }
 
@@ -76,6 +78,7 @@ export interface patient {
 
 export interface patBlock {
   pat: patient,
+  hasMessage: boolean,
   actions: Actions[]
 }
 

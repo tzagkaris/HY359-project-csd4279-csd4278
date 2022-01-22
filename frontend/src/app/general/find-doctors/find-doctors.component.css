@@ -60,3 +60,22 @@
   padding-bottom: 0;
   padding-left: 3rem;
 }
+
+.pinned-map-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.d-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  align-items: center;
+  justify-content: center;
+}

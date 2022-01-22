@@ -22,12 +22,14 @@ export class PatientInfoComponent implements OnInit {
     this.isGraphSelected = false;
   }
 
-  constructor(private sn: StatefulNavigationService) { }
+  constructor(private sn: StatefulNavigationService, private ds: DoctorService) { }
 
   patient: patient;
 
   ngOnInit(): void {
     this.patient = this.sn.getSavedPat();
+
+    this.ds.readMessages(this.patient._id).subscribe(r => { console.log(r)}, er=> {/* console.log(er) */})
   }
 
 }

@@ -1,5 +1,6 @@
 <div class="doctor-entry border-prim shadow-prim">
   <img *ngIf="info.isCertified" class="cert" src="./../../../assets/certified.svg" alt="certified" title="This doctor was certified by an administrator.">
+  <img *ngIf="info.hasMessages" class="cert-2" src="./../../../assets/message-2.svg" title="New unread messages!">
   <div class="info-list">
     <h2>{{info.name}}</h2>
     <h3>Location: <span class="thin-text">{{info.location}}</span></h3>

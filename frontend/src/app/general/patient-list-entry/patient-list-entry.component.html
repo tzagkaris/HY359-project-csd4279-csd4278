@@ -1,6 +1,9 @@
 <div class="doctor-entry border-prim shadow-prim">
-  <div class="info-list">
+  <div class="name-cont">
     <h2>{{info.pat.firstname + " " + info.pat.lastname}}</h2>
+    <img *ngIf="info.hasMessage" class="abs-top" src="./../../../assets/message-2.svg" alt="new messages!" title="New unread messages!">
+  </div>
+  <div class="info-list">
     <h3>Location: <span class="thin-text">{{info.pat.address + ", " + info.pat.city + ", " + info.pat.country }}</span></h3>
     <h3 class="bounded-textbox">Phone Number: <span class="thin-text float-right">+30 {{info.pat.telephone}}</span></h3>
     <h3 class="bounded-textbox">Birthdate: <span class="thin-text float-right">{{info.pat.birthdate.split('T')[0]}}</span></h3>

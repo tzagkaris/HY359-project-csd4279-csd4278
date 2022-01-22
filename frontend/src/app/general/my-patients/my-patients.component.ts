@@ -5,6 +5,10 @@ import { patBlock, patient } from 'src/app/interfaces/blocklist-entry';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { StatefulNavigationService } from 'src/app/services/stateful-navigation.service';
 
+interface p_id {
+  patient_id: number
+}
+
 @Component({
   selector: 'app-my-patients',
   templateUrl: './my-patients.component.html',
@@ -16,20 +20,30 @@ export class MyPatientsComponent implements OnInit {
 
   patients: patient[] = [];
   patBlocks: patBlock[] = [];
+  ids: p_id[] = [];
 
   ngOnInit(): void {
 
     this.ds.getMyPatients().subscribe(res => {
       this.patients = res;
-      this.toblocklist()
-    }, er => console.log(er))
+
+      this.ds.getNewMessagePIds().subscribe(r => {
+        this.ids = r;
+        this.toblocklist()
+      }, er => {/* console.log(er) */})
+
+    }, er => {/* console.log(er) */})
   }
 
   toblocklist() {
 
     this.patients.forEach(p => {
+
+      let s = this.ids.filter(a => a.patient_id == p._id)
+
       this.patBlocks.push({
         pat: p,
+        hasMessage: !!s.length,
         actions: [
           {text: "More", colorClass: "", clickFunc: () => {
             this.sn.setSelectedPatient(p);
