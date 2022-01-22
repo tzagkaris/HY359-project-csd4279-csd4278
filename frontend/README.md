@@ -2,26 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
 
-## Development server
+## Steps to see frontend running:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+0. Make sure you have installed node version 12+ and npm  
+1. Open a terminal.
+2. navigate to /frontned.
+3. Run: "npm install -g @angular/cli" to install angular on your machine.
+4. Run: "npm install" to install additionnal packages needed for application to run.
+5. Run: "ng serve" to start a demo server to serve the frontend.
+6. Open link provided from ng serve on browser.
+7. Do not terminate process running on terminal while viewing the project.
 
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To get more help about the whole process, just type "how to install angular" on google.
+
+
+@Tzagkaris
